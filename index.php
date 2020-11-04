@@ -12,7 +12,7 @@
     $controller->includer($controller->indexPage($sansize->getrequest('alias'), ''), $art_menu[0]['alias'], './template/subart.php', $controller, $art_menu);
     $controller->includer($controller->indexPage($sansize->getrequest('alias'), ''), $artRow['art_alias'], './template/articles.php', $controller, $artRow);
     ?>
-eee
+    
 </body>
 
 </html>
