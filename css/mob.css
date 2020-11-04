@@ -1,0 +1,100 @@
+@media screen and (max-width: 1200px) { 
+
+    .literB, .liter_des, .liter_des2{
+        height: 200px !important;
+        
+    }
+    .liter_des{
+            margin-top: -200px !important;
+        }
+        .doul{
+            margin-top: 75px !important;
+        }
+    }
+    @media screen and (max-width: 990px) { 
+
+        .literB, .liter_des, .liter_des2{
+            height: 140px !important;
+            font-size: 7pt !important;
+        }
+        .liter_des{
+            margin-top: -140px !important;
+            
+        }
+        .doul{
+            margin-top: 45px !important;
+            width: 70px !important;
+            font-size: 12pt !important;
+        }
+        }
+        @media screen and (max-width: 766px) { 
+
+            .literB, .liter_des, .liter_des2{
+                height: 100px !important;
+                
+            }
+            .liter_des{
+                margin-top: -100px !important;
+                
+            }
+            .literB:hover .liter_des{
+                opacity: 0 !important;
+               
+            }
+            .literB:hover .liter_des2{
+                opacity: 0 !important;
+               
+            }
+            .literB:hover{
+                border: solid 4px rgb(0, 136, 204) ;
+            }
+            }
+            @media screen and (max-width: 574px) { 
+
+                .literB, .liter_des, .liter_des2{
+                    height: 300px !important;
+                    width: 200px !important;
+                    background-size: cover !important;
+                    font-size: 20pt !important;
+                    margin: auto !important;
+                    margin-top: 20px !important;
+                   
+                    
+                }
+               .log-img-r{
+                   margin: auto !important;
+                   left: 0 !important;
+                   right: 0 !important;
+                   width: 80% !important;
+               }
+                .literB:hover .liter_des{
+                    opacity: 0.7 !important;
+                   
+                }
+                .literB:hover .liter_des2{
+                    opacity: 1 !important;
+                   
+                }
+                .literB:hover{
+                    border: none !important;
+                }
+                .liter_des{
+                    margin-top: -300px !important;
+                }
+                .doul{
+                    margin-top: 135px !important;
+                    width: 100px !important;
+                    font-size: 15pt !important;
+                    padding-bottom: 5px !important;
+                }
+                .images-n{
+                    height: 300px !important;
+                    width: 200px !important;
+                }
+                }
+                @media screen and (max-width: 500px) { 
+
+                   #mob_kn{
+                    margin-top: 0px;
+                   }
+                    }

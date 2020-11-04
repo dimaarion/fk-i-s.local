@@ -1,0 +1,66 @@
+﻿html body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #f7f3f1;
+	text-align: center;
+	}
+body-bg{
+	background-color: #803f1f;
+}
+a{
+	text-decoration: none;
+}
+article{
+    display: inline-block;
+	width: 940px;
+	height: 100%;
+	
+}
+.bd{
+	display: inline-block;
+	max-width: 1100px;
+	height: 100%;
+}
+
+.footer{
+
+	text-align: center;
+	margin: auto;
+	width: auto;
+	height: auto;
+	background-color: #201d1b;
+	background-color: #a1daf7;
+	
+	
+}
+.footer p{
+	color: #506d7c;
+}
+#dop{
+	overflow: hidden;
+	height: 270px;
+}
+#dop div img{
+	display: inline-block;
+	height: 250px;
+	
+	
+}
+#scroltop{
+	cursor: pointer;
+	position: fixed;
+	text-align: center;
+	width: 100px;
+	right: 0;
+	margin-top: 300px;
+	z-index: 80000;
+	background-color: #a1daf7;
+	color: #4b4b4e;
+	
+	
+}
+#scroltop :hover{
+	background-color: #2aa2dd;
+	color: #ffffff;
+	transition:1s;
+}
