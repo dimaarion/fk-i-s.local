@@ -17,7 +17,7 @@ $menu_class->props = $menu;
 $art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id =' . $menu_alias['menu_id']);
 //переадресация на главную если статьи не существует
 $controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'],$menu_alias['alias']),'nopage'), 'nopage','/');
-//переадресация с http на https 
+//переадресация с http на https
 $controller->redirects($_SERVER['HTTP_X_FORWARDED_PROTOCOL'],'http','https://'. $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 // Отправка письма
 
@@ -55,9 +55,9 @@ if ($countform != 0 && $countformto != 0) {
         new DMail('19197908an@mail.ru', 'sandani<noreply@sandani.ru>', $tema, ['name' => 'Ф. И. О: ' . $name, 'Телефон: ' . 'tel' => $tel, 'mail' => 'Почта: ' . $mail, 'message' => $content]);
         header('location:/message.html?id=Сообщение отправлено!');
     } else {
-        header('location:/message.html?id=Ошибка! Сообщение не отправлено ');
+        header('location:/message.html?id=Ошибка! Сообщение не отправлено');
     }
-} 
-
+}
+//определение расширения страниц
 
 ?>
