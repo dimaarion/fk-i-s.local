@@ -1,4 +1,4 @@
-﻿html body{
+html body{
 	margin: 0px;
 	padding: 0px;
 	background-color: #f7f3f1;
@@ -23,12 +23,8 @@ article{
 }
 
 .footer{
-
 	text-align: center;
-	margin: auto;
-	width: auto;
-	height: auto;
-	background-color: #201d1b;
+    height: 150px;
 	background-color: #a1daf7;
 	
 	
