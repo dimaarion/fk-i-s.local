@@ -21,11 +21,6 @@
             "names" => "Файлы",
             "alias" => "/adminpanel/files",
             "parent_id" => 0
-        ], [
-            "menu_id" => 5,
-            "names" => "Калькулятор",
-            "alias" => "/adminpanel/calculator/ru/oo/sg",
-            "parent_id" => 0
         ]
     ];
     $menu_class = new Menu();

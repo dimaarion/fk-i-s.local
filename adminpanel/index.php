@@ -80,7 +80,7 @@ $controller->redirects($nmenu, 'load', '/adminpanel/files');
         $controller->includer($page, 'files', './admin/template/files.php', $controller, $images);
         $controller->includer($nmenu, 'artnew', './admin/template/files.php', $controller, $images);
         $controller->includer($nmenu, 'updateart', './admin/template/files.php', $controller, $images);
-        $controller->includer($page, 'calculator', './admin/template/calculator.php', $controller, $sill, $calculator_profile, $sansize,$tide);
+
         ?>
     </div>
     <?php $controller->includer(true, true, './admin/template/footer.php', $controller); ?>
