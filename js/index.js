@@ -1,5 +1,7 @@
 //появление и скрытие левого меню
- function menuleft(){
+function index() {
+  
+function menuleft(){
 
  $("#mob_kn").click(function(){
    var menu_left = $("#mob_menu").css("marginLeft")
@@ -71,6 +73,10 @@ $(document).ready(function () {
  
  });
 
+
+
+}
+index();
 
 
 

@@ -6,6 +6,9 @@ class Controller
     public $saveurls;
     public $savenames;
     public $errFiles = 'Такого файла или каталога не существует';
+    public $alias;
+    public $id;
+    public $limit = 4;
 
     public function inputs($inputs)
     {
@@ -20,7 +23,7 @@ class Controller
                 . $inputs['names']
                 . '</h5></label>';
         endif;
-        echo '<input value = "'
+        echo '<input ' . $inputs["checked"] . ' value = "'
             . $inputs['value']
             . '" class="form-control form-control-lg '
             . $inputs['inputclass']
@@ -110,11 +113,11 @@ class Controller
 
     public function dirFileName($nameDir)
     {
-      $r =  array_map(function ($x) {
+        $r =  array_map(function ($x) {
             preg_match('/\w+\.\w+\.\w+\.css|\w+\.\w+\.\w+\.js/', $x, $p);
             return $p[0];
-        }, $nameDir); 
-        
+        }, $nameDir);
+
         return array_unique($r);
     }
 
@@ -163,7 +166,6 @@ class Controller
             znacenie text(255) NOT NULL,
             PRIMARY KEY (`id`))"
         );
-
     }
 
     public function insertTable($sansize)
@@ -186,7 +188,7 @@ class Controller
                     $sansize->getrequest('names'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    $sansize->getrequest('parent_id'),
+                    $sansize->getrequest('parent_id')
                 ]
             );
 
@@ -212,7 +214,7 @@ class Controller
                     $sansize->getrequest('names'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    $sansize->getrequest('parent_id'),
+                    $sansize->getrequest('parent_id')
                 ],
                 $sansize->getrequest('menu')
             );
@@ -313,10 +315,10 @@ class Controller
             );
 
             $this->err = $din->err;
-            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('id') . '/' . $sansize->getrequest('id2') . '/'. $sansize->getrequest('calculatorRezult').'/'. $sansize->getrequest('calculatorid'));
+            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('id') . '/' . $sansize->getrequest('id2') . '/' . $sansize->getrequest('calculatorRezult') . '/' . $sansize->getrequest('calculatorid'));
         }
         //calculator sill
-       
+
         if ($_REQUEST['calculatorRezultSaveSill'] && $sansize->getrequestInt('calculatorRezultSill')) {
             $din =  new DUpdate(
                 'grid',
@@ -331,7 +333,7 @@ class Controller
             );
 
             $this->err = $din->err;
-           header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') .'/' . $sansize->getrequest('calculatoridSill') . '/' . $sansize->getrequest('calculatorRezultSill').'/'. $sansize->getrequest('id3'));
+            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('calculatoridSill') . '/' . $sansize->getrequest('calculatorRezultSill') . '/' . $sansize->getrequest('id3'));
         }
         //calculator tide
 
@@ -393,7 +395,7 @@ class Controller
 
     public function indexPage($alias, $prist)
     {
-        if ($alias == '') {
+        if ($alias == '' || $alias == 'page') {
             return '/';
         } else {
             return $alias . $prist;
@@ -409,44 +411,20 @@ class Controller
         }
     }
 
-    public function calculator_profile($var)
-    {
-        if ($var == 'ru') {
-            return 'Россия, Турция';
-        } elseif ($var == '3k') {
-            return '3-камерный';
-        } elseif ($var == '5k') {
-            return '5-камерный';
-        }
-    }
 
-    public function calculator_okno($var)
-    {
-        if ($var == 'oo') {
-            return 'Одностворчатое окно';
-        } elseif ($var == 'do') {
-            return 'Двустворчатое окно';
-        } elseif ($var == 'to') {
-            return 'Трехстворчатое окно';
-        }
-    }
-    public function calculator_stvorka($var)
-    {
-        if ($var == 'sg') {
-            return 'глухое';
-        } elseif ($var == 'sp') {
-            return 'Поворотное';
-        } elseif ($var == 'spo') {
-            return 'Поворотно-откидное';
-        }
-    }
 
-    public function twocorrectthird($item1, $item2, $rezult1,$rezult2)
+
+    public function twocorrectthird($item1, $item2, $rezult1, $rezult2)
     {
-        if($item1 == $item2){
+        if ($item1 == $item2) {
             return $rezult1;
-        }else{
+        } else {
             return $rezult2;
         }
+    }
+
+    public function pagination($a, $b)
+    {
+        return ($a / $b + ($a % $b > 0 ? 1 : 0));
     }
 }

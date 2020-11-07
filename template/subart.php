@@ -13,4 +13,10 @@
 
         
     <?php endforeach; ?>
-</div>
+  
+</div>  
+<?php 
+if(count($x2) > $controller->limit){
+     $controller->includer(true, true, './template/pagination.php', $controller, $x2);
+}
+?>

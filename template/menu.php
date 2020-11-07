@@ -4,7 +4,7 @@
 		<div class="container menu-top">
 			<nav id="menu">
 				<ul class="nav justify-content-end">
-					<?php $x->menu_recursions($x2['alias'], 'style = ""'); ?>
+					<?php $x->menu_recursions($x2['alias'], 'style = "color: rgb(235, 113, 35);"'); ?>
 				</ul>
 			</nav>
 		</div>

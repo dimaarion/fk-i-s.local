@@ -9,12 +9,19 @@ $menuClassRows = new DSelect('menu');
 $articleClassRow = new DSelect('article');
 $menu_class = new Menu();
 $art_menu_select = new DSelect('menu,article,art_menu');
+$art_menu_select_count = new DSelect('menu,article,art_menu');
 //Переменные
-$menu_alias =  $menuClass->queryRow('alias', $controller->indexPage($sansize->getrequest('alias'), ''));
-$artRow = $articleClassRow->queryRow('art_alias', $controller->indexPage($sansize->getrequest('alias'), ''));
+$controller->limit = 4;
+$controller->alias = $sansize->getrequest('alias');
+$controller->id = $sansize->getrequest('id');
+$menu_alias =  $menuClass->queryRow('alias', $controller->indexPage($controller->alias, ''));
+$artRow = $articleClassRow->queryRow('art_alias', $controller->indexPage($controller->alias, ''));
 $menu = $menuClassRows->queryRows();
 $menu_class->props = $menu;
-$art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id =' . $menu_alias['menu_id']);
+$art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="' 
+. $menu_alias['menu_id']. '" LIMIT '. $controller->twocorrectthird($controller->id,'',0, $controller->id).','. $controller->limit.'');
+$art_menu_count = $art_menu_select_count->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="'
+. $menu_alias['menu_id'] . '"');
 //переадресация на главную если статьи не существует
 $controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'],$menu_alias['alias']),'nopage'), 'nopage','/');
 //переадресация с http на https
