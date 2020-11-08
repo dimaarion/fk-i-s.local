@@ -155,17 +155,7 @@ class Controller
             art_content text(255) NOT NULL,
             PRIMARY KEY (`art_id`))"
         );
-        $tableMenu->createTable(
-            "CREATE TABLE  prais (
-            id INT(11) AUTO_INCREMENT NOT NULL,
-            profiles VARCHAR(255) NOT NULL,
-            okno VARCHAR(255) NOT NULL,
-            stvorka VARCHAR(255) NOT NULL,
-            width VARCHAR(255) NOT NULL,
-            height VARCHAR(255) NOT NULL,
-            znacenie text(255) NOT NULL,
-            PRIMARY KEY (`id`))"
-        );
+        
     }
 
     public function insertTable($sansize)
@@ -300,59 +290,7 @@ class Controller
 
             $this->err = $din->err;
         }
-        //calculator
-        if ($_REQUEST['calculatorRezultSave'] && $sansize->getrequestInt('calculatorRezult')) {
-            $din =  new DUpdate(
-                'prais',
-                [
-                    'znacenie',
-                    'id'
-                ],
-                [
-                    $sansize->getrequestInt('calculatorRezult'),
-                ],
-                $sansize->getrequestInt('calculatorid')
-            );
-
-            $this->err = $din->err;
-            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('id') . '/' . $sansize->getrequest('id2') . '/' . $sansize->getrequest('calculatorRezult') . '/' . $sansize->getrequest('calculatorid'));
-        }
-        //calculator sill
-
-        if ($_REQUEST['calculatorRezultSaveSill'] && $sansize->getrequestInt('calculatorRezultSill')) {
-            $din =  new DUpdate(
-                'grid',
-                [
-                    $sansize->getrequest('id3'),
-                    'grid_id'
-                ],
-                [
-                    $sansize->getrequestInt('calculatorRezultSill'),
-                ],
-                $sansize->getrequestInt('calculatoridSill')
-            );
-
-            $this->err = $din->err;
-            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('calculatoridSill') . '/' . $sansize->getrequest('calculatorRezultSill') . '/' . $sansize->getrequest('id3'));
-        }
-        //calculator tide
-
-        if ($_REQUEST['calculatorRezultSaveTide'] && $sansize->getrequestInt('calculatorRezultTide')) {
-            $din =  new DUpdate(
-                'tide',
-                [
-                    $sansize->getrequest('id3'),
-                    'tide_id'
-                ],
-                [
-                    $sansize->getrequestInt('calculatorRezultTide'),
-                ],
-                $sansize->getrequestInt('calculatoridTide')
-            );
-
-            $this->err = $din->err;
-            header('location:/adminpanel/calculator/' . $sansize->getrequest('nmenu') . '/' . $sansize->getrequest('calculatoridTide') . '/' . $sansize->getrequest('calculatorRezultTide') . '/' . $sansize->getrequest('id3'));
-        }
+      
     }
 
     public function deleteTable($sansize)

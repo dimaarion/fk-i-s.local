@@ -1,9 +1,17 @@
-function scrolTop() {
-    function buttonScroll() {
-        return document.getElementById('scroltop');
-    }
+function scrolTop() { 
+    $('#scroltop').css({ display: 'none' });
+    $(document).scroll(function (e) { 
+        if (window.scrollY > 400){
+            $('#scroltop').css({display:'block'});
+        }else{
+            $('#scroltop').css({ display: 'none' });
+        }
+        console.log(window.scrollY)
+    });
+    $('#scroltop').click(()=>{
+        $(window).scrollTop(0);
+    })
 
-    console.log(buttonScroll())
 }
 $(document).ready(function () {
     scrolTop();

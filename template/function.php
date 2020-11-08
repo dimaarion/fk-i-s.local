@@ -7,6 +7,7 @@ $sansize = new Sansize();
 $menuClass = new DSelect('menu');
 $menuClassRows = new DSelect('menu');
 $articleClassRow = new DSelect('article');
+$articleClassRows = new DSelect('article');
 $menu_class = new Menu();
 $art_menu_select = new DSelect('menu,article,art_menu');
 $art_menu_select_count = new DSelect('menu,article,art_menu');
@@ -16,6 +17,7 @@ $controller->alias = $sansize->getrequest('alias');
 $controller->id = $sansize->getrequest('id');
 $menu_alias =  $menuClass->queryRow('alias', $controller->indexPage($controller->alias, ''));
 $artRow = $articleClassRow->queryRow('art_alias', $controller->indexPage($controller->alias, ''));
+$artRows = $articleClassRows->queryRows();
 $menu = $menuClassRows->queryRows();
 $menu_class->props = $menu;
 $art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="' 

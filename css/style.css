@@ -10,12 +10,7 @@ body-bg{
 a{
 	text-decoration: none;
 }
-article{
-    display: inline-block;
-	width: 940px;
-	height: 100%;
-	
-}
+
 .bd{
 	display: inline-block;
 	max-width: 1100px;
@@ -42,21 +37,7 @@ article{
 	
 	
 }
-#scroltop{
+article img{
+	
 	cursor: pointer;
-	position: fixed;
-	text-align: center;
-	width: 100px;
-	right: 0;
-	margin-top: 300px;
-	z-index: 80000;
-	background-color: #a1daf7;
-	color: #4b4b4e;
-	
-	
-}
-#scroltop :hover{
-	background-color: #2aa2dd;
-	color: #ffffff;
-	transition:1s;
 }
