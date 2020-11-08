@@ -3,6 +3,7 @@
 
 
     foreach ($x as $key => $val) :
+        
         if (stristr($val['art_names'], substr($x2, 0, 4))) :
     ?>
 
