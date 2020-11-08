@@ -7,5 +7,5 @@
 		</div>
 
 	</div>
-	<?php $controller->includer(true, true, './template/dopArt.php', $controller,$x2); ?>
+	<?php $controller->includer(true, true, './template/dopArt.php', $controller,$x2, $x['art_names']); ?>
 </article>
