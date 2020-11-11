@@ -155,7 +155,6 @@ class Controller
             art_content text(255) NOT NULL,
             PRIMARY KEY (`art_id`))"
         );
-        
     }
 
     public function insertTable($sansize)
@@ -290,7 +289,6 @@ class Controller
 
             $this->err = $din->err;
         }
-      
     }
 
     public function deleteTable($sansize)
@@ -364,5 +362,79 @@ class Controller
     public function pagination($a, $b)
     {
         return ($a / $b + ($a % $b > 0 ? 1 : 0));
+    }
+
+    public function createFiles( $location, $content,$dir = '')
+    {
+        if ($dir == '') {
+            if (file_exists('./'.$location)) {
+                $str = file_get_contents('./' . $location);
+                if (strcmp($str, $content) != 0) {
+                    return file_put_contents('./' . $location, $content);
+                }
+            } else {
+                return file_put_contents('./' . $location, $content);
+            }
+        }else{
+            if(is_dir('./'.$dir)){
+                if (file_exists('./'.$dir.'/'.$location)) {
+                    
+                    $str = file_get_contents('./' . $dir . '/' . $location);
+                    if (strcmp($str, $content) != 0) {
+                        return file_put_contents('./' . $dir . '/' . $location, $content);
+                    }
+                } else {
+                    return file_put_contents('./' . $dir . '/' . $location, $content);
+                }
+            }else{
+                mkdir('./'.$dir);
+            }
+        }
+    }
+
+    public function createRobotText()
+    {
+        return
+            'User-agent: Yandex
+Allow: /
+Disallow: /template/
+Disallow: /admin/
+Disallow: /img/
+Disallow: /image/
+Disallow: /js/
+Disallow: /index.php
+Disallow: /index.php?
+Disallow: /?
+Disallow: /file/
+Disallow: /%
+
+
+User-agent: *
+Allow: /
+Sitemap: https://' . $_SERVER['HTTP_HOST'] . '/sitemap/sitemap.xml
+Disallow: /template/
+Disallow: /admin/
+Disallow: /img/
+Disallow: /image/
+Disallow: /js/
+Disallow: /index.php
+Disallow: /index.php?
+Disallow: /?
+Disallow: /file/
+Disallow: /%
+Host:https://' . $_SERVER['HTTP_HOST'] . '/';
+    }
+
+    public function createSitemap($arr = [])
+    {
+        $d = [];
+        foreach ($arr as $key => $value) {
+            $d[$key] =  "<url><loc>https://" . $_SERVER['HTTP_HOST'] . "/" . $value['art_alias'] . "</loc></url> \n";
+        }
+        return
+            "<?xml version='1.0' encoding='UTF-8'?>
+        <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'> \n"
+            . implode(' ', $d)
+            . '</urlset>';
     }
 }

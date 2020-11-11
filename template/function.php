@@ -67,6 +67,7 @@ if ($countform != 0 && $countformto != 0) {
         header('location:/message.html?id=Ошибка! Сообщение не отправлено');
     }
 }
-//определение расширения страниц
-
+//Создание файлов
+$controller->createFiles('robots.txt',$controller->createRobotText());
+$controller->createFiles('sitemap.txt', $controller->createSitemap($artRows),'sitemap');
 ?>
