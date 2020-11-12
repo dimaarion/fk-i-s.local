@@ -1,20 +1,9 @@
 .images{
-  overflow: hidden;
-  height: 210px;
-  margin-bottom: 10px
-
+  margin-bottom: 10px;
 }
 .srcimg{
-	position: absolute;
- 	z-index: 15000;
  	background-color: #ffffff;
- 	height: 55px;
- 	width: 100%;
- 	margin-top: 126px;
  	cursor: auto;
-  padding-left: 15px;
-  padding-right: 20px;
-
 }
 #svgright, #svgleft{
   color: #ffffff;
@@ -99,8 +88,15 @@ box-shadow:0px 1px 5px 3px rgba(0,0,0,0.60);
 -moz-box-shadow:0px 1px 5px 3px rgba(0,0,0,0.60);
 }
 .deleteF{
-  height: 20px;
+  height: 0px;
   margin-bottom: 10px;
+  position: absolute;
+  z-index: 8000;
+  margin-left: 80px;
+  margin-top:-10px;
+  width: 0px;
+  border: none;
+  background-color: #ffffffff;
 }
 .images:hover .deleteF svg{
 display: inline-block;

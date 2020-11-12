@@ -9,6 +9,8 @@ class Controller
     public $alias;
     public $id;
     public $limit = 4;
+    public $nmenu;
+    public $page;
 
     public function inputs($inputs)
     {

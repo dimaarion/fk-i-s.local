@@ -20,8 +20,9 @@ $artRow = $articleClassRow->queryRow('art_alias', $controller->indexPage($contro
 $artRows = $articleClassRows->queryRows();
 $menu = $menuClassRows->queryRows();
 $menu_class->props = $menu;
+$countPageMin = ($controller->twocorrectthird($controller->id, '', 1, $controller->id) * $controller->limit) - $controller->limit;
 $art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="' 
-. $menu_alias['menu_id']. '" LIMIT '. $controller->twocorrectthird($controller->id,'',0, $controller->id).','. $controller->limit.'');
+. $menu_alias['menu_id']. '" LIMIT '. $countPageMin.','. $controller->limit.'');
 $art_menu_count = $art_menu_select_count->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="'
 . $menu_alias['menu_id'] . '"');
 //переадресация на главную если статьи не существует
