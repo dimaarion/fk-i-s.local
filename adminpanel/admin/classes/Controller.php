@@ -155,6 +155,7 @@ class Controller
             art_description VARCHAR(255) NOT NULL,
             art_subcontent text(255) NOT NULL,
             art_content text(255) NOT NULL,
+            articles int(11) NOT NULL,
             PRIMARY KEY (`art_id`))"
         );
     }
@@ -380,7 +381,7 @@ class Controller
         }else{
             if(is_dir('./'.$dir)){
                 if (file_exists('./'.$dir.'/'.$location)) {
-                    
+
                     $str = file_get_contents('./' . $dir . '/' . $location);
                     if (strcmp($str, $content) != 0) {
                         return file_put_contents('./' . $dir . '/' . $location, $content);
