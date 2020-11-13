@@ -1,25 +1,3 @@
 <?xml version='1.0' encoding='UTF-8'?>
         <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'> 
-<url><loc>https://fk-i-s.local/vidi_sporta</loc></url> 
- <url><loc>https://fk-i-s.local/detskii_sport</loc></url> 
- <url><loc>https://fk-i-s.local/celi_fiziceskogo_vospitaniya</loc></url> 
- <url><loc>https://fk-i-s.local/article/russia.php </loc></url> 
- <url><loc>https://fk-i-s.local/istor-fk-v-greece</loc></url> 
- <url><loc>https://fk-i-s.local/teoriya_i_metodika_fv/ponyatiya-fv-i-s.php</loc></url> 
- <url><loc>https://fk-i-s.local/article/bioritmi.php</loc></url> 
- <url><loc>https://fk-i-s.local/planirovanie/tematicheskoe_planirovanie.php</loc></url> 
- <url><loc>https://fk-i-s.local/gimnastika-zuravin</loc></url> 
- <url><loc>https://fk-i-s.local/uprazneniya-na-brevne</loc></url> 
- <url><loc>https://fk-i-s.local/gimnasticeskoe-mnogoborie-zenskie-vidi-volnie-uprazneniya</loc></url> 
- <url><loc>https://fk-i-s.local/zenskie-vidi-opornie-prizki</loc></url> 
- <url><loc>https://fk-i-s.local/zenskie-vidi-raznovisokie-brusia</loc></url> 
- <url><loc>https://fk-i-s.local/uprazneniya-na-brusyah</loc></url> 
- <url><loc>https://fk-i-s.local/velosport</loc></url> 
- <url><loc>https://fk-i-s.local/osobennosti-organ-vnekl-raboti</loc></url> 
- <url><loc>https://fk-i-s.local/teor-i-metod-tren-darts</loc></url> 
- <url><loc>https://fk-i-s.local/prosteihie-aviamodeli</loc></url> 
- <url><loc>https://fk-i-s.local/kak-stati-silnim</loc></url> 
- <url><loc>https://fk-i-s.local/vitamin-b2</loc></url> 
- <url><loc>https://fk-i-s.local/galere</loc></url> 
- <url><loc>https://fk-i-s.local/dddddwwwwwwwwwwwwwwdddd</loc></url> 
 </urlset>
