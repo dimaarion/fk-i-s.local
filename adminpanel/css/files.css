@@ -1,75 +1,7 @@
 .images{
   margin-bottom: 10px;
 }
-.srcimg{
- 	background-color: #ffffff;
- 	cursor: auto;
-}
-#svgright, #svgleft{
-  color: #ffffff;
-  font-size: 25pt;
-  background-color:#444444;
-  border-radius: 25px;
-  height: 50px;
-  width: 50px;
-  padding: 5px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-#svgright:hover{
-  border-radius: 30px;
-  height: 55px;
-  width: 55px;
 
-}
-#svgleft:hover{
-  border-radius: 30px;
-  height: 55px;
-  width: 55px;
- }
- #svgcloseimg:hover{
-  border-radius: 30px;
-  height: 55px;
-  width: 55px;
- }
-#svgcloseimg{
-  color: #ffffff;
-  font-size: 25pt;
-  background-color:#444444;
-  border-radius: 25px;
-  height: 50px;
-  width: 50px;
-  padding: 5px;
-  transition: 0.2s;
-  cursor: pointer;
-  position: absolute;
-
-}
-.imgrigstkr{
-  float: left;
-}
-.closeimg{
-  float: right;
-  margin-right: 50px;
-}
-.footerBarIcon{
-  width: 100%;
-  cursor: pointer;
-
-}
-#footbarimg{
-  z-index: 8000;
-  margin-top: 100px;
-}
-#footbarimg div{
-  overflow: hidden;
-  height: 50px;
-  margin-bottom: 10px;
-
-}
-.imgFootBl{
-  border:solid 3px green;
-}
 .deleteF svg{
   display: none;
   color: #333333;
@@ -105,6 +37,20 @@ display: inline-block;
 
 .deleteFilesDiv{
   display: none;
+}
+.titleImg{
+  position: absolute;
+  z-index: 8000;
+  background-color: #333333;
+  color: #fff;
+  padding: 10px;
+  max-width:800px;
+  margin-left: 125px;
+  border-radius: 5px; 
+  display: none;
+}
+.images:hover .titleImg{
+display: block;
 }
 
 
