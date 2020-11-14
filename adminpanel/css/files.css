@@ -1,9 +1,10 @@
 .images{
+  padding-top: 40px;
   margin-bottom: 10px;
 }
 
 .deleteF svg{
-  display: none;
+
   color: #333333;
   font-size: 25pt;
   background-color:#cccccc;
@@ -20,18 +21,19 @@ box-shadow:0px 1px 5px 3px rgba(0,0,0,0.60);
 -moz-box-shadow:0px 1px 5px 3px rgba(0,0,0,0.60);
 }
 .deleteF{
+  display: none;
   height: 0px;
   margin-bottom: 10px;
   position: absolute;
   z-index: 8000;
-  margin-left: 80px;
-  margin-top:-10px;
+  margin-left: -50px;
+  margin-top:-25px;
   width: 0px;
   border: none;
   background-color: #ffffffff;
 }
-.images:hover .deleteF svg{
-display: inline-block;
+.images:hover .deleteF{
+display: block;
 }
 
 
@@ -40,19 +42,17 @@ display: inline-block;
 }
 .titleImg{
   position: absolute;
-  z-index: 8000;
   background-color: #333333;
-  color: #fff;
-  padding: 10px;
-  max-width:800px;
+  color: #ffffff;
+  padding: 5px;
+  border-radius:5px;
   margin-left: 125px;
-  border-radius: 5px; 
+  z-index: 8000;
   display: none;
 }
 .images:hover .titleImg{
 display: block;
 }
-
 
 
 
