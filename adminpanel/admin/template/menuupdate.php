@@ -1,24 +1,20 @@
 <?php
-    $menu_update_parent = $arr->queryRow(
-        'menu_id',
-        $row['parent_id']
-    );
-    $controller->includer(
-        true,
-        true,
-        './admin/template/headtitle.php',
-        $controller,
-        'Меню',
-        'редактировать пункт меню',
-        ['names'=>$row['names']]
-    );
+$menu_update_parent = $arr->queryRow(
+    'menu_id',
+    $row['parent_id']
+);
+$controller->includer(
+    true,
+    true,
+    './admin/template/headtitle.php',
+    $controller,
+    'Меню',
+    'редактировать пункт меню',
+    ['names' => $row['names']]
+);
 ?>
-<form
-id="menunain"
-action="/adminpanel/menu/updatemenu/<?php echo $id; ?>"
-method="post">
-    <div
-    class="mt-4 row">
+<form id="menunain" action="/adminpanel/menu/updatemenu/<?php echo $id; ?>" method="post">
+    <div class="mt-4 row">
         <?php
         $controller->inputs(
             [
@@ -38,10 +34,8 @@ method="post">
         );
         ?>
     </div>
-    <div
-    class="row">
-        <div
-        class="col">
+    <div class="row">
+        <div class="col">
             <?php
             $controller->inputs(
                 [
@@ -85,41 +79,32 @@ method="post">
             );
             ?>
         </div>
-        <div
-        class="col">
-            <div
-            class="col mt-2">
-                <label
-                for="parent_id">
+        <div class="col">
+            <div class="col mt-2">
+                <label for="parent_id">
                     <h5>
-                    Категории
+                        Категории
                     </h5>
                 </label>
-                <select
-                class="custom-select"
-                name="parent_id"
-                id="parent_id">
-                    <option
-                    value="<?php
-                    if ($menu_update_parent['names']) {
+                <select class="custom-select" name="parent_id" id="parent_id">
+                    <option value="<?php
+                                    if ($menu_update_parent['names']) {
                                         echo $menu_update_parent['menu_id'];
                                     } else {
                                         echo '0';
                                     };
-                                    ?>"
-                                    selected>
-                                    <?php
-                                    if ($menu_update_parent['menu_id']) {
-                                                            echo $menu_update_parent['names'];
-                                                        } else {
-                                                            echo 'Нет';
-                                                        };
-                                                        ?></option>
+                                    ?>" selected>
+                        <?php
+                        if ($menu_update_parent['menu_id']) {
+                            echo $menu_update_parent['names'];
+                        } else {
+                            echo 'Нет';
+                        };
+                        ?></option>
                     <?php
-                    if ($menu_update_parent['menu_id']):
-                        ?>
-                        <option
-                        value="0">
+                    if ($menu_update_parent['menu_id']) :
+                    ?>
+                        <option value="0">
                             Нет
                         </option>
                     <?php
@@ -127,32 +112,26 @@ method="post">
                     ?>
                     <?php
                     foreach ($id2 as $key => $value) :
-                        ?>
-                        <option
-                        value="<?php echo $value['menu_id']; ?>">
-                        <?php
-                        echo $value['names'];
-                        ?>
+                    ?>
+                        <option value="<?php echo $value['menu_id']; ?>">
+                            <?php
+                            echo $value['names'];
+                            ?>
                         </option>
 
                     <?php
-                endforeach;
-                ?>
+                    endforeach;
+                    ?>
                 </select>
             </div>
-            <div
-            class="col">
-                <div
-                class="row">
-                    <div
-                    class="col">
-                        <h5
-                        class="h5  mt-4">
+            <div class="col" >
+                <div class="row">
+                    <div class="col">
+                        <h5 class="h5  mt-4">
                             Статьи
                         </h5>
                     </div>
-                    <div
-                    class="col">
+                    <div class="col">
                         <?php $controller->inputs(
                             [
                                 'type' => 'submit',
@@ -163,8 +142,7 @@ method="post">
                         ); ?>
                     </div>
                 </div>
-                <div
-                class="col">
+                <div class="col" id="menuArt">
                     <?php
                     array_map(function ($params) {
                         $c = new Controller();
@@ -176,7 +154,7 @@ method="post">
                                 'name' => 'menu_articles',
                                 'id' => 'update_menu_art' . $params['art_id'],
                                 'inputclass' => 'col-1',
-                                'divclass' => 'row'
+                                'divclass' => 'row update_menu_art'
                             ]
                         );
                     }, $x);
@@ -184,19 +162,14 @@ method="post">
                     ?>
                 </div>
             </div>
-            <div
-            class="col">
-                <div
-                class="row">
-                    <div
-                    class="col">
-                        <h5
-                        class="h5 mt-4">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="h5 mt-4">
                             Привязать статью
                         </h5>
                     </div>
-                    <div
-                    class="col">
+                    <div class="col">
                         <?php
                         $controller->inputs(
                             [
@@ -217,8 +190,7 @@ method="post">
                         ?>
                     </div>
                 </div>
-                <div
-                class="col new_menu_art_bl">
+                <div class="col new_menu_art_bl" id="privArt">
                     <?php
                     array_map(function ($params) {
                         $c = new Controller();

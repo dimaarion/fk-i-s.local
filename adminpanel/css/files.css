@@ -53,6 +53,8 @@ display: block;
 .images:hover .titleImg{
 display: block;
 }
-
+.descriptImg{
+  font-size: 12pt;
+}
 
 

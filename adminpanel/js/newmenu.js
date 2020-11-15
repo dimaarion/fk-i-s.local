@@ -7,7 +7,7 @@ $(document).ready(function () {
 		'o', 'p', 'r', 's', 't',
 		'u', 'f', 'h', 'c', 'ch',
 		'sh', 'sch', '', 'y', '',
-		'e', 'yu', 'ya', '_'
+		'e', 'yu', 'ya', '-'
 	];
 	let ru_m = [
 		'а', 'б', 'в', 'г', 'д', 'е',
