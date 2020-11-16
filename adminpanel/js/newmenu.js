@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	let num = ['0','1','2','3','4','5','6','7','8','9','10'];
 
 	let en_m = [
 		'a', 'b', 'v', 'g', 'd',
@@ -26,8 +27,8 @@ $(document).ready(function () {
 		'Э', 'Ю', 'Я',' '
 	]
 	
-	let en = en_m.concat(en_m);
-	let ru = ru_m.concat(ru_b);
+	let en = en_m.concat(en_m, num);
+	let ru = ru_m.concat(ru_b, num);
 	$('#names').bind('input', function (e) {
 		function grtReplaceInput(e, en, ru) {
 			let d = [];
