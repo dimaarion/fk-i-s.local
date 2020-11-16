@@ -6,7 +6,6 @@ function scrolTop() {
         }else{
             $('#scroltop').css({ display: 'none' });
         }
-        console.log(window.scrollY)
     });
     $('#scroltop').click(()=>{
         $(window).scrollTop(0);
