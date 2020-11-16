@@ -56,5 +56,8 @@ display: block;
 .descriptImg{
   font-size: 12pt;
 }
-
+.copyUrl{
+  border: none;
+  margin: 5px;
+}
 
