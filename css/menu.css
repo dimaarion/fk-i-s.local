@@ -8,7 +8,7 @@
 
 }
     .menu-top{
-		margin-top: -40px;
+		margin-top: -45px;
 	}
 	.menu-top ul li ul{
 	
@@ -18,19 +18,19 @@
 		border-radius: 5px;
 		box-shadow: 0px 0px 4px #cccccc; 
 		z-index:10000;
-		width: 210px;
+		min-width: 210px;
 	}
     .top:hover .menu_pod{
 		
 		display: block;
 	}
 	.menu-top ul li a{
-		font-size: 16pt;
+		font-size: 19pt;
         font-family: 'Kurale', serif;
         color: #407590;
 	}
 	.menu-top ul li ul li a{
-		font-size: 13pt;
+		font-size: 16pt;
 		margin-left: -5px;
        
 	}
@@ -100,7 +100,6 @@
     padding-left: 5px;
 	padding-right: 5px;
 	padding-bottom: 5px;
-    font-size:16pt;
 	display: block;
 	font-family: 'Kurale', serif;
 	color:#407590;
@@ -124,11 +123,8 @@
 	
 }
 .menu ul li ul li{
-	font-size: 12pt;
 	padding-left: 5px;
-}
-.menu ul li ul li a{
-	font-size: 12pt;
+	font-size: 16pt;
 }
 .menu ul a:hover{
     color:#EB7123;
