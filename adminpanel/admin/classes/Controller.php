@@ -367,10 +367,10 @@ class Controller
         return ($a / $b + ($a % $b > 0 ? 1 : 0));
     }
 
-    public function createFiles( $location, $content,$dir = '')
+    public function createFiles($location, $content, $dir = '')
     {
         if ($dir == '') {
-            if (file_exists('./'.$location)) {
+            if (file_exists('./' . $location)) {
                 $str = file_get_contents('./' . $location);
                 if (strcmp($str, $content) != 0) {
                     return file_put_contents('./' . $location, $content);
@@ -378,9 +378,9 @@ class Controller
             } else {
                 return file_put_contents('./' . $location, $content);
             }
-        }else{
-            if(is_dir('./'.$dir)){
-                if (file_exists('./'.$dir.'/'.$location)) {
+        } else {
+            if (is_dir('./' . $dir)) {
+                if (file_exists('./' . $dir . '/' . $location)) {
 
                     $str = file_get_contents('./' . $dir . '/' . $location);
                     if (strcmp($str, $content) != 0) {
@@ -389,19 +389,61 @@ class Controller
                 } else {
                     return file_put_contents('./' . $dir . '/' . $location, $content);
                 }
-            }else{
-                mkdir('./'.$dir);
+            } else {
+                mkdir('./' . $dir);
             }
         }
     }
 
+    public function paginationPage($controller, $a, $b)
+    {
+
+        if ($a < 1) {
+            if ($controller->alias != 'page') {
+                return $controller->alias;
+            }
+        } else {
+            if (!$controller->alias) {
+                return 'page' . $controller->alias . '/' . $b;
+            } else {
+                return $controller->alias . '/' . $b;
+            }
+        }
+    }
+
+
+    public function paginationPlus($controller, $a, $b)
+    {
+
+        if (!$controller->alias) {
+            return '/page/2';
+        } else {
+            if ($controller->alias == 'page') {
+                if ($controller->id + $a > $b) {
+                    return '/';
+                } else {
+                    return $controller->id + $a;
+                }
+            } else {
+                if (!$controller->id) {
+                    return '/' . $controller->alias . '/2';
+                } else {
+                    if ($controller->id + $a > $b) {
+                        return '/' . $controller->alias;
+                    } else {
+                        return  $controller->id + $a;
+                    }
+                }
+            }
+        }
+    }
     public function createRobotText()
     {
         return
             'User-agent: Yandex
 Allow: /
 Disallow: /template/
-Disallow: /admin/
+Disallow: /adminpanel/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/
@@ -416,7 +458,7 @@ User-agent: *
 Allow: /
 Sitemap: https://' . $_SERVER['HTTP_HOST'] . '/sitemap/sitemap.xml
 Disallow: /template/
-Disallow: /admin/
+Disallow: /adminpanel/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/

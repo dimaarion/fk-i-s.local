@@ -70,5 +70,5 @@ if ($countform != 0 && $countformto != 0) {
 }
 //Создание файлов
 $controller->createFiles('robots.txt',$controller->createRobotText());
-$controller->createFiles('sitemap.txt', $controller->createSitemap($artRows),'sitemap');
+$controller->createFiles('sitemap.xml', $controller->createSitemap($artRows),'sitemap');
 ?>
