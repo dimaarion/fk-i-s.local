@@ -395,6 +395,48 @@ class Controller
         }
     }
 
+    public function paginationPage($controller, $a, $b)
+    {
+
+        if ($a < 1) {
+            if ($controller->alias != 'page') {
+                return $controller->alias;
+            }
+        } else {
+            if (!$controller->alias) {
+                return 'page' . $controller->alias . '/' . $b;
+            } else {
+                return $controller->alias . '/' . $b;
+            }
+        }
+    }
+
+
+    public function paginationPlus($controller, $a, $b)
+    {
+
+        if (!$controller->alias) {
+            return '/page/2';
+        } else {
+            if ($controller->alias == 'page') {
+                if ($controller->id + $a > $b) {
+                    return '/';
+                } else {
+                    return $controller->id + $a;
+                }
+            } else {
+                if (!$controller->id) {
+                    return '/' . $controller->alias . '/2';
+                } else {
+                    if ($controller->id + $a > $b) {
+                        return '/' . $controller->alias;
+                    } else {
+                        return  $controller->id + $a;
+                    }
+                }
+            }
+        }
+    }
     public function createRobotText()
     {
         return
