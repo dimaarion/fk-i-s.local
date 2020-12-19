@@ -1,1 +1,0 @@
- <img src="/img/icon/blvol.png" alt="slider" width="100%">
