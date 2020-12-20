@@ -11,6 +11,7 @@ class Controller
     public $limit = 4;
     public $nmenu;
     public $page;
+    public $countPag = 2;
 
     public function inputs($inputs)
     {
@@ -435,6 +436,20 @@ class Controller
                     }
                 }
             }
+        }
+    }
+
+    public function paginationCount($id,$c)
+    {
+        if ($id == '') {
+            return 1;
+        }else{
+            if($id > $c){
+                return 1;
+            }else{
+                return $id;
+            }
+
         }
     }
     public function createRobotText()
