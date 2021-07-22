@@ -1,4 +1,10 @@
 <article class=" container-fluid">
+<?php 
+	//array_merge()
+	 
+       
+
+	?>
 	<div class="container content text-left mt-2">
 
 		<h1 class="h1"><?php echo $x['art_names'] ?></h1>

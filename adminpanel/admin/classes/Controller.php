@@ -113,6 +113,24 @@ class Controller
         }
     }
 
+    public function get_json($f)
+    {
+        if (is_file($f)) {
+            return file_get_contents($f);
+        } else {
+            return $this->errFiles;
+        }
+    }
+
+    public function set_json($f, $content)
+    {
+        if (is_file($f)) {
+            return  file_put_contents($f, json_encode($content));
+        } else {
+            return $this->errFiles;
+        }
+    }
+
     public function dirFileName($nameDir)
     {
         $r =  array_map(function ($x) {
