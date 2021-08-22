@@ -11,6 +11,7 @@ class Controller
     public $limit = 4;
     public $nmenu;
     public $page;
+    public $countPag = 2;
 
     public function inputs($inputs)
     {
@@ -385,10 +386,10 @@ class Controller
         return ($a / $b + ($a % $b > 0 ? 1 : 0));
     }
 
-    public function createFiles($location, $content, $dir = '')
+    public function createFiles( $location, $content,$dir = '')
     {
         if ($dir == '') {
-            if (file_exists('./' . $location)) {
+            if (file_exists('./'.$location)) {
                 $str = file_get_contents('./' . $location);
                 if (strcmp($str, $content) != 0) {
                     return file_put_contents('./' . $location, $content);
@@ -396,9 +397,9 @@ class Controller
             } else {
                 return file_put_contents('./' . $location, $content);
             }
-        } else {
-            if (is_dir('./' . $dir)) {
-                if (file_exists('./' . $dir . '/' . $location)) {
+        }else{
+            if(is_dir('./'.$dir)){
+                if (file_exists('./'.$dir.'/'.$location)) {
 
                     $str = file_get_contents('./' . $dir . '/' . $location);
                     if (strcmp($str, $content) != 0) {
@@ -407,8 +408,8 @@ class Controller
                 } else {
                     return file_put_contents('./' . $dir . '/' . $location, $content);
                 }
-            } else {
-                mkdir('./' . $dir);
+            }else{
+                mkdir('./'.$dir);
             }
         }
     }
@@ -455,13 +456,27 @@ class Controller
             }
         }
     }
+
+    public function paginationCount($id,$c)
+    {
+        if ($id == '') {
+            return 1;
+        }else{
+            if($id > $c){
+                return 1;
+            }else{
+                return $id;
+            }
+
+        }
+    }
     public function createRobotText()
     {
         return
             'User-agent: Yandex
 Allow: /
 Disallow: /template/
-Disallow: /adminpanel/
+Disallow: /admin/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/
@@ -476,7 +491,7 @@ User-agent: *
 Allow: /
 Sitemap: https://' . $_SERVER['HTTP_HOST'] . '/sitemap/sitemap.xml
 Disallow: /template/
-Disallow: /adminpanel/
+Disallow: /admin/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/
