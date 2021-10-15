@@ -5,10 +5,10 @@ function discriptReplaceBr() {
         descriptImg = Array.from(descriptImg);
         descriptImg.map((x) => x.innerHTML = x.innerHTML.replace(/[_]/g, '_<br>'));
         descriptImg.map((x) => x.innerHTML = x.innerHTML.replace(/[-]/g, '-<br>'));
-        
-    }
 
+    }
 }
 $(document).ready(function () {
     discriptReplaceBr();
+
 });

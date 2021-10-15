@@ -1,8 +1,8 @@
 <?php
 $files = new Files();
 ?>
-<div class="col-sm row images">
-    <div class="col-sm">
+<div class="col-sm-2  images">
+    <div class="row">
 
         <div class="titleImg">
             ..<?php echo $x2 . $x['value']; ?>
@@ -16,7 +16,7 @@ $files = new Files();
         </div>
         <?php if (is_dir($_SERVER['DOCUMENT_ROOT'] . $x2 . $x['value'])) : ?>
             <div class="boxImage imgDirBoxGallery">
-                <img width="100%" src="/img/icon/dir.jpg" alt="<?php echo $x2 . $x['value']; ?>">
+                <img width="100%" data = "dir files" src="/img/icon/dir.jpg" alt="<?php echo $x2 . $x['value']; ?>">
             </div>
 
             <div class="closeDirBox">
@@ -35,13 +35,13 @@ $files = new Files();
                         </button>
                     </div>
                     <div class="col-sm">
-                        <img width="100%" class="imgDir iconBaseDir" src="<?php echo $x2 . $x['value'] . '/' . $value; ?>" alt="<?php echo $x2 . $value; ?>">
+                        <img width="100%" data = "<?php echo $x['value'] ?> files" class="imgDir iconBaseDir" src="<?php echo $x2 . $x['value'] . '/' . $value; ?>" alt="<?php echo $x2 . $value; ?>">
                     </div>
                 <?php endforeach; ?>
             </div>
         <?php else : ?>
             <div class="boxImage">
-                <img width="100%" class="iconBaseDir" src="<?php echo $x2 . $x['value']; ?>" alt="<?php echo $x2 . $x['value']; ?>">
+                <img width="100%" data = "<?php echo $x['value'] ?> files" class="iconBaseDir" src="<?php echo $x2 . $x['value']; ?>" alt="<?php echo $x2 . $x['value']; ?>">
             </div>
         <?php endif; ?>
         <div class="descriptImg">

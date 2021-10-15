@@ -112,6 +112,26 @@ class Controller
             echo $this->errFiles;
         }
     }
+ public function get_json($f)
+    {
+        if (is_file($f)) {
+            return json_decode(file_get_contents($f));
+        } else {
+            return $this->errFiles;
+        }
+    }
+
+    public function set_json($f = "", $content = ["test"=>"test"])
+    {
+        if($f != ""){
+            if (is_file($f)) {
+                return  file_put_contents($f, json_encode($content),LOCK_EX);
+            } else {
+                return $this->errFiles;
+            }
+        }
+
+    }
 
     public function dirFileName($nameDir)
     {
@@ -135,6 +155,7 @@ class Controller
             keywords VARCHAR(255) NOT NULL,
             descriptions VARCHAR(255) NOT NULL,
             parent_id int(11) NOT NULL,
+            position int(11) NOT NULL,
             PRIMARY KEY (`menu_id`))"
         );
         $tableMenu->createTable(
@@ -153,9 +174,8 @@ class Controller
             art_title VARCHAR(255) NOT NULL,
             art_keyword VARCHAR(255) NOT NULL,
             art_description VARCHAR(255) NOT NULL,
-            art_subcontent text(255) NOT NULL,
-            art_content text(255) NOT NULL,
-            articles int(11) NOT NULL,
+            art_subcontent text(500) NOT NULL,
+            art_content text(500) NOT NULL,
             PRIMARY KEY (`art_id`))"
         );
     }
@@ -172,7 +192,8 @@ class Controller
                     'names',
                     'keywords',
                     'descriptions',
-                    'parent_id'
+                    'parent_id',
+                    'position'
                 ],
                 [
                     $sansize->getrequest('alias'),
@@ -180,7 +201,8 @@ class Controller
                     $sansize->getrequest('names'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    $sansize->getrequest('parent_id')
+                    $sansize->getrequest('parent_id'),
+                    0
                 ]
             );
 
@@ -197,7 +219,8 @@ class Controller
                     'keywords',
                     'descriptions',
                     'parent_id',
-                    'menu_id'
+                    'menu_id',
+                    'position'
 
                 ],
                 [
@@ -206,13 +229,14 @@ class Controller
                     $sansize->getrequest('names'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    $sansize->getrequest('parent_id')
+                    $sansize->getrequest('parent_id'),
+                    0
                 ],
                 $sansize->getrequest('menu')
             );
 
             $this->err = $din->err;
-            header('location:/adminpanel/menu/updatemenu/' . $sansize->getrequest('menu'));
+            header('location:/adminpanel/menu/updatemenu/' . $sansize->getrequest('menu').'/0');
         }
         // добавление статьи к меню
         if (@$_REQUEST['update_menu_art_save']) {
@@ -255,7 +279,7 @@ class Controller
                     $sansize->getrequest('title'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    htmlentities($_REQUEST['subcontent'], ENT_HTML5),
+                    '',
                     htmlentities($_REQUEST['content'], ENT_HTML5)
 
                 ],
@@ -284,7 +308,7 @@ class Controller
                     $sansize->getrequest('title'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    htmlentities($_REQUEST['subcontent'], ENT_HTML5),
+                    '',
                     htmlentities($_REQUEST['content'], ENT_HTML5)
 
                 ]
