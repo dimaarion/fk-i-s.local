@@ -81,6 +81,7 @@ method="post">
                     'value' => $x['art_keyword']
                 ]
             );
+            $controller->includer(true, true, './admin/template/select.php', $controller,'','');
             $controller->inputsTextarera(
                 [
                     'type' => 'text',
