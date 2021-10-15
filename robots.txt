@@ -1,7 +1,7 @@
 User-agent: Yandex
 Allow: /
 Disallow: /template/
-Disallow: /admin/
+Disallow: /adminpanel/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/
@@ -14,9 +14,9 @@ Disallow: /%
 
 User-agent: *
 Allow: /
-Sitemap: https://fk-i-s.local/sitemap/sitemap.xml
+Sitemap: https://fk-i-s.ru/sitemap/sitemap.xml
 Disallow: /template/
-Disallow: /admin/
+Disallow: /adminpanel/
 Disallow: /img/
 Disallow: /image/
 Disallow: /js/
@@ -25,4 +25,4 @@ Disallow: /index.php?
 Disallow: /?
 Disallow: /file/
 Disallow: /%
-Host:https://fk-i-s.local/
+Host:https://fk-i-s.ru/

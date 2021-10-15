@@ -29,9 +29,6 @@ $art_menu_count = $art_menu_select_count->queryRowWhere('menu.menu_id = art_menu
 $controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'],$menu_alias['alias']),'nopage'), 'nopage','/');
 //переадресация с http на https
 $controller->redirects($_SERVER['HTTP_X_FORWARDED_PROTOCOL'],'http','https://'. $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-//
-$controller->redirects('', 'http', 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
 // Отправка письма
 
 function intFilter($val)

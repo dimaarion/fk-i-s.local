@@ -1,0 +1,66 @@
+<rss
+    xmlns:yandex="http://news.yandex.ru"
+    xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:turbo="http://turbo.yandex.ru"
+    version="2.0">
+    <channel>
+        <title>Физическая культура и спорт</title>
+        <link>https://fk-i-s.ru/</link>
+        <description>На сайте физическая культура и спорт. Вы можете скачать книги, рефераты, курсовые совершенно бесплатно. </description>
+        <turbo:analytics type="Yandex" id="123456"></turbo:analytics>
+        <turbo:adNetwork
+         type="Yandex"
+         id="blockfk"
+         turbo-ad-id="first_ad_place">
+        </turbo:adNetwork>
+        <turbo:adNetwork
+         type="AdFox"
+         turbo-ad-id="second_ad_place">
+            <![CDATA[
+                    <div id="containerfk"></div>
+                    <script>
+                        window.Ya.adfoxCode.create({
+                            ownerId: 123456,
+                            containerId: 'containerfk',
+                            params: {
+                                pp: 'g',
+                                ps: 'cmic',
+                                p2: 'fqem'
+                            }
+                        });
+                    </script>
+                 ]]>
+        </turbo:adNetwork>
+        <item turbo="true">
+            <link>https://fk-i-s.ru</link>
+            <author>Арион Дмитрий</author>
+            <category>Учеба</category>
+            <pubDate>Sun, 03 Apr 2019 11:48:01 +0300</pubDate>
+            <turbo:content>
+                <![CDATA[
+                         <header>
+                             <figure>
+                                 <img src="https://fk-i-s.ru/img/log3.png" />
+                             </figure>
+                             <h1>Физическая культура и спорт</h1>
+                             <menu><!--Элементы меню-->
+                                 <a href="https://fk-i-s.ru">Главная</a>
+                                 <a href="https://fk-i-s.ru/referat/referat.php">Рефераты</a>
+                                 <a href="https://fk-i-s.ru/course/course.php">Курсовые</a>
+                                 <a href="https://fk-i-s.ru/liter/liter.php">Книги</a>
+                             </menu>
+                         </header>
+                         <h2>Физическая культура и спорт</h2>
+                         <p>На нашем сайте <a href="https://fk-i-s.ru">Физкультура и спорт</a> вы можете скачать книги, рефераты, курсовые,
+                         и многое другое что поможет вам в учебе.</p>
+                              ]]>
+            </turbo:content>
+            <yandex:related type="infinity">
+                <link
+                 url="https://fk-i-s.ru"
+                 img="https://fk-i-s.ru/img/log3.png">Физкультура и спорт
+                </link>
+            </yandex:related>
+        </item>
+    </channel>
+</rss>

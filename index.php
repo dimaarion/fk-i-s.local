@@ -1,6 +1,5 @@
 <?php
-require_once "./template/function.php"; 
-?>
+require_once "./template/function.php"; ?>
 <!DOCTYPE html>
 <html lang="ru">
 

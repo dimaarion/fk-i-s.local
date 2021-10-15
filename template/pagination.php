@@ -7,14 +7,9 @@
                 </svg>
             </span>
         </li>
-        <?php for ($i = 0, $j = $controller->paginationCount($controller->id,$controller->countPag); $i < $controller->countPag; $i++, $j++) :  ?>
+        <?php for ($i = 0, $j = 1; $i < floor($controller->pagination(count($x), $controller->limit)); $i++, $j++) :  ?>
             <li class="page-item <?php echo $controller->twocorrectthird($controller->twocorrectthird($controller->id, '', 1, $controller->id), $j, 'active', ''); ?>"><a class="page-link" href="/<?php echo $controller->paginationPage($controller, $i, $j); ?>"><?php echo $j ?></a></li>
         <?php endfor; ?>
-        <li class="page-item disabled">
-            <span class="page-link">
-            <?php echo floor($controller->pagination(count($x), $controller->limit)); ?>
-            </span>
-        </li>
         <li class="page-item ">
             <a class="page-link " href="<?php echo $controller->paginationPlus($controller, 1, floor($controller->pagination(count($x), $controller->limit))); ?>">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -24,4 +19,3 @@
         </li>
     </ul>
 </nav>
-<?php echo $controller->paginationCount($controller->id,$controller->countPag); ?>
