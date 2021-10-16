@@ -33,7 +33,6 @@ $calculator_select_grid = new DSelect('grid');
 $calculator_select_profile = new DSelect('prais');
 $sill = $calculator_select_grid->queryRows();
 $tide = $calculator_select_tide->queryRows();
-
 //Меню + Статьи
 $art_menu_select = new DSelect('menu,article,art_menu');
 $art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id =' . $id);
@@ -43,12 +42,32 @@ $controller->insertTable($sansize);
 $controller->deleteTable($sansize);
 //Загрузка файла
 
-$files_upload = new DUpload('files', '/img/upload/');
-$images = $files_upload->getImg('/img/upload');
+$files_upload = new DUpload('files', $_REQUEST['urlDir']);
+$n1 = '/'.$_REQUEST['nmenu'];
+$n2 = '/'.$_REQUEST['id'];
+$n3 = '/'.$_REQUEST['id2'];
+if($_REQUEST['nmenu'] == "jpg" || $_REQUEST['nmenu'] == "png" || $_REQUEST['nmenu'] == "pdf" || $_REQUEST['nmenu'] == "doc" || $_REQUEST['nmenu'] == "djvu" || $_REQUEST['nmenu'] == ""){
+    $urlF = "/img/upload/";
+}else{
+    if($_REQUEST['nmenu'] == "img" && $_REQUEST['id'] == "" && $_REQUEST['id2'] == ""){
+        $urlF = $n1."/";
+    }elseif($_REQUEST['nmenu'] == "img" && $_REQUEST['id'] == "upload" && $_REQUEST['id2'] == ""){
+        $urlF = $n1.$n2."/"; 
+    }elseif($_REQUEST['nmenu'] == "img" && $_REQUEST['id'] == "upload" && $_REQUEST['id2'] != ""){
+       $urlF = $n1.$n2.$n3."/";
+    }else {
+        $urlF = "/img/upload/";
+    }
+    
+}
+
+$images = $files_upload->getImg($urlF);
 //Удаление файла
 
 $filesClass = new Files();
 $filesClass->deleteFiles();
+$filesClass->createDir('createDir');
+$filesClass->deleteDir();
 //----------------------------------------------------------------------------------------------------------------------------
 
 $controller->redirects($id, 'new', '/adminpanel/menu/menu');
@@ -82,16 +101,18 @@ $controller->redirects($nmenu, 'load', '/adminpanel/files');
         $controller->includer($nmenu, 'articles', './admin/template/artmain.php', $controller, $article, $x2, $arr, $row, $id);
         $controller->includer($nmenu, 'artnew', './admin/template/artnew.php', $controller);
         $controller->includer($nmenu, 'updateart', './admin/template/artupdate.php', $controller, $article_id);
-        $controller->includer($page, 'files', './admin/template/files.php', $controller, $images);
-        $controller->includer($nmenu, 'artnew', './admin/template/files.php', $controller, $images);
-        $controller->includer($nmenu, 'updateart', './admin/template/files.php', $controller, $images);
-
+        $controller->includer($page, 'files', './admin/template/files.php', $controller, $images,$urlF);
+        $controller->includer($nmenu, 'artnew', './admin/template/files.php', $controller, $images,$urlF);
+        $controller->includer($nmenu, 'updateart', './admin/template/files.php', $controller, $images,$urlF);
+        $controller->includer($page, 'settings', './admin/template/settings.php', $controller);
+        $controller->includer($page, '', './admin/template/metrika.php', $controller);
         ?>
     </div>
-    <?php $controller->includer(true, true, './admin/template/footer.php', $controller); ?>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <?php
+     $controller->includer(true, true, './admin/template/footer.php', $controller); 
+    ?>
 
+    
 </body>
 
 </html>
