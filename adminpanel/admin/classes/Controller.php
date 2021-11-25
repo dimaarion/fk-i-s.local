@@ -279,7 +279,7 @@ class Controller
                     $sansize->getrequest('title'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    '',
+                    $_REQUEST['subartJson'],
                     htmlentities($_REQUEST['content'], ENT_HTML5)
 
                 ],
@@ -308,7 +308,7 @@ class Controller
                     $sansize->getrequest('title'),
                     $sansize->getrequest('keywords'),
                     $sansize->getrequest('description'),
-                    '',
+                    $_REQUEST['subartJson'],
                     htmlentities($_REQUEST['content'], ENT_HTML5)
 
                 ]
@@ -506,4 +506,18 @@ Host:https://' . $_SERVER['HTTP_HOST'] . '/';
             . implode(' ', $d)
             . '</urlset>';
     }
+
+    public function parseStdClass($std)
+    {
+        $a = [];
+        foreach ($std as $key => $value) {
+          foreach ($value as $key2 => $value2) {
+              $a[$key][$key2] = $value2;
+          }
+               
+           
+        }
+        return $a ;
+    }
+
 }

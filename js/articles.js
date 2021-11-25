@@ -63,7 +63,7 @@ class Articles{
 
 
 
-console.log(x);
+
             }
         }
 
@@ -74,7 +74,7 @@ console.log(x);
    display(){
     this.searhArt();
     this.menuArtorArt();
-    this.subart();
+    //this.subart();
    }
 }
 const articles = new Articles();

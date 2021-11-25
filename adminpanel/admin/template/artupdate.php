@@ -96,7 +96,7 @@ method="post">
                 true,
                 './admin/template/redactor.php',
                 $controller,
-                html_entity_decode($x['art_subcontent'], ENT_HTML5),
+                $x['art_subcontent'],
                 html_entity_decode($x['art_content'], ENT_HTML5)
             );
             ?>

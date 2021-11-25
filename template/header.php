@@ -1,6 +1,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="<?php echo 'https://' . $_SERVER['HTTP_HOST']; ?>/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
         <meta name="yandex-verification" content="0b7903306734ff1f" />
         <?php
         foreach ($x as $key => $value) :
@@ -10,8 +10,7 @@
         endforeach;
         ?>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-        <script src="../jquery/jquery.js">
-        </script>
+        <script src="../jquery/jquery.js"></script>
         <?php
         foreach ($x2 as $key => $value) :
         ?>

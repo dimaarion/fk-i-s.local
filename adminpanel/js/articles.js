@@ -12,7 +12,7 @@ function searhArt() {
 
         }
 
-        searh.addEventListener('keypress', searhEl, false)
+        searh.addEventListener('keyup', searhEl, false)
     }
 
 }

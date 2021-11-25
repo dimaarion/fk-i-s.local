@@ -5,6 +5,10 @@
 	box-shadow: 0px 0px 4px #cccccc;
 	background-color:#ffffff;
 	margin-bottom: 20px;
+	font-size: 14pt;
+}
+content p{
+	font-size: 14pt !important;
 }
 .detailed{
 	 padding: 4px 10px 4px 10px;
@@ -270,14 +274,13 @@ p{
 
 
 }
-@media screen and (min-width: 1440px) { 
-
-	p{
-		font-size:13pt;
-	}
-
+@media screen and (max-width: 500px) { 
+ h1, h2, h3{
+	 font-size: 18pt !important;
+ }
 
 }
+
 
 @media screen and (max-width: 768px) { 
 
