@@ -36,7 +36,7 @@ class Menu
     public function child($x, $u)
     {
         foreach ($x as $key => $value) {
-            echo  '<li class="pod nav"><a data-child = "'.$u.'" href="/' . $value['alias'] . '" class="nav-link pb-0 pl-0 ml-0">' . $value['names'] . '</a>';
+            echo  '<li class="pod nav"><a data-child = "' . $u . '" href="/' . $value['alias'] . '" class="nav-link pb-0 pl-0 ml-0">' . $value['names'] . '</a>';
             if ($value['cild']) :
                 echo '<ul>';
                 $this->child($value['cild'], $u);
@@ -60,20 +60,19 @@ class Menu
                 $c = '';
             }
 
-            if($value['alias'] == '/'){
+            if ($value['alias'] == '/') {
                 $a = $value['alias'];
-            }else{
-                $a = '/'.$value['alias'];
+            } else {
+                $a = '/' . $value['alias'];
             }
-           
-                echo '<li class="nav-item top"><a class="nav-link" ' . $c . '  href="' . $a . '">' . $value['names'] . '</a>';
-                if ($value['cild']) :
-                    echo '<ul class = "menu_pod">';
-                    $this->child($value['cild'], $value['alias']);
-                    echo '</ul>';
-                    echo '</li>';
-                endif;
-            
+
+            echo '<li class="nav-item top"><a class="nav-link" ' . $c . '  href="' . $a . '">' . $value['names'] . '</a>';
+            if ($value['cild']) :
+                echo '<ul class = "menu_pod">';
+                $this->child($value['cild'], $value['alias']);
+                echo '</ul>';
+                echo '</li>';
+            endif;
         }
     }
 }

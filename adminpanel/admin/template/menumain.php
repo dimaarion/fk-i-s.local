@@ -14,7 +14,7 @@
 				$controller->inputs(
 					[
 						'type' => 'submit',
-						'name' => 'new_menu_save',
+						'name' => 'delete_menu_id',
 						'value' => 'Удалить',
 						'divclass' => 'col-2 p-0'
 
