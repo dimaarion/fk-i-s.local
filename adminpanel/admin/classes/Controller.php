@@ -112,7 +112,8 @@ class Controller
             echo $this->errFiles;
         }
     }
- public function get_json($f)
+    
+    public function get_json($f)
     {
         if (is_file($f)) {
             return json_decode(file_get_contents($f));
@@ -178,10 +179,100 @@ class Controller
             art_content text(500) NOT NULL,
             PRIMARY KEY (`art_id`))"
         );
+
+        $tableMenu->createTable(
+            "CREATE TABLE  tel (
+            tel_id INT(6) AUTO_INCREMENT NOT NULL,
+            tel_content VARCHAR(255) NOT NULL,
+            PRIMARY KEY (`tel_id`))"
+        );
+
+        $tableMenu->createTable(
+            "CREATE TABLE  settings (
+            settings_id INT(6) AUTO_INCREMENT NOT NULL,
+            name_site VARCHAR(255) NOT NULL,
+            PRIMARY KEY (`settings_id`))"
+        );
     }
+
+
+    public function insertDbDefault($tb,$idName,$colName,$id,$str)
+    {
+        $settings = new DSelect($tb);
+        $name = $settings->queryRow($idName, $id);
+        if ($name[$colName] == "") {
+            $din =  new DInsert(
+                $tb,
+                [
+                    $colName
+                ],
+                [
+                    $str
+                ]
+            );
+
+            $this->err = $din->err;
+
+        }
+    }
+
+
+    public function settinsUpdate($sansize,$saveBtn,$names,$id)
+    {
+        if (@$_REQUEST[$saveBtn]) {
+            $din =  new DUpdate(
+                'settings',
+                [
+                    'name_site',
+                    'settings_id'
+                ],
+                [
+                    $sansize->getrequest($names)
+                ],
+                $sansize->getrequest($id)
+            );
+
+            $this->err = $din->err;
+            header('location:/adminpanel/settings');
+        }
+    }
+
 
     public function insertTable($sansize)
     {
+        //Добавление названия сайта
+        $this->insertDbDefault('settings','settings_id','name_site',1,'My site');
+        //по умолчанию добавить почту
+        $this->insertDbDefault('settings','settings_id','name_site',2,'message@mail.ru');
+        //по умолчанию колличество статей на странице
+        $this->insertDbDefault('settings','settings_id','name_site',3,'3');
+        //по умолчанию добавить номер тел
+        $this->insertDbDefault('tel','tel_id','tel_content',1,'0 777 777 77');
+
+        //Обновление названия сайта
+        $this->settinsUpdate($sansize,'telsavebutton','nameSiteSave','nameSiteSaveid');
+        //Обновление почты сайта
+        $this->settinsUpdate($sansize,'telsavebutton','nameMailSave','nameMailSaveid');
+        
+        //Обновление колличество статей на странице
+        $this->settinsUpdate($sansize,'telsavebutton','nameCountSave','nameCountSaveid');
+        //Добавление номера тел
+        if (@$_REQUEST['telsavebutton']) {
+            $din =  new DUpdate(
+                'tel',
+                [
+                    'tel_content',
+                    'tel_id'
+                ],
+                [
+                    $sansize->getrequest('telsave')
+                ],
+                $sansize->getrequest('tel_id')
+            );
+
+            $this->err = $din->err;
+            header('location:/adminpanel/settings');
+        }
         //Добавление пунктов меню
         if (@$_REQUEST['new_menu_save']) {
             $din =  new DInsert(
@@ -219,8 +310,9 @@ class Controller
                     'keywords',
                     'descriptions',
                     'parent_id',
-                    'menu_id',
-                    'position'
+                    'position',
+                    'menu_id'
+                    
 
                 ],
                 [

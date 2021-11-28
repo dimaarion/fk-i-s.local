@@ -2,6 +2,10 @@
     padding-top: 40px;
     margin-bottom: 10px;
 }
+.images img{
+    padding: 4px;
+    
+}
 
 .images .boxImage {
     height: 200px;
@@ -9,9 +13,10 @@
 }
 
 .images .dirBoxGallery {
-    margin-top: 25px;
+    margin-top: 225px;
     width: 500px;
     position: absolute;
+    z-index: 8000;
 }
 
 .iconBoxDir {
@@ -117,7 +122,7 @@
 }
 
 .images:hover .titleImg {
-    display: block;
+    display: none;
 }
 
 .descriptImg {

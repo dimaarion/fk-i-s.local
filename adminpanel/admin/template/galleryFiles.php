@@ -34,7 +34,7 @@ $files = new Files();
                             </svg>
                         </button>
                     </div>
-                    <div class="col-sm">
+                    <div class="col-sm-5">
                         <img width="100%" data = "<?php echo $x['value'] ?> files" class="imgDir iconBaseDir" src="<?php echo $x2 . $x['value'] . '/' . $value; ?>" alt="<?php echo $x2 . $value; ?>">
                     </div>
                 <?php endforeach; ?>

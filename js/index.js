@@ -34,9 +34,22 @@ function index() {
       }
       for (var i = 0; i < c.a.length; i++) {
         var ahref = c.a[i].href;
-        if (ahref == c.url) {
+        function cssColor(c) {
           c.a[i].style.backgroundColor = c.bcolor;
           c.a[i].style.color = c.acolor;
+        }
+        if (ahref == c.url) {
+              cssColor(c);
+          let dataChild = c.a[i].getAttribute("data-child");
+          let urlChild = document.location.protocol + "//" + document.location.host + "/" +  dataChild;
+          if(dataChild !== null){
+            if(urlChild == c.a[i].parentElement.parentElement.parentElement.childNodes[0].href){
+               c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.backgroundColor = c.bcolor;
+               c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.color = c.acolor;
+            }
+          
+          }
+          
         }
       }
     }
@@ -61,32 +74,32 @@ function index() {
   function resizeWindow() {
     let buttonMob = document.getElementById('buttonMob');
     let menuMob = document.getElementById('menuMob');
-    if (window.innerWidth < 1000){
+    if (window.innerWidth < 1000) {
       buttonMob.style.display = 'block';
-      if (menuMob != undefined){
+      if (menuMob != undefined) {
         menuMob.style.display = 'block';
       }
-      
-    }else{
+
+    } else {
       buttonMob.style.display = 'none';
       if (menuMob != undefined) {
         menuMob.style.display = 'none';
       }
     }
-  
+
     function buttonM(e) {
-      if (window.innerWidth < 1000){
+      if (window.innerWidth < 1000) {
         buttonMob.style.display = 'block';
         if (menuMob != undefined) {
           menuMob.style.display = 'block';
         }
-      }else{
+      } else {
         buttonMob.style.display = 'none';
         if (menuMob != undefined) {
           menuMob.style.display = 'none';
         }
       }
-     
+
     }
     window.addEventListener('resize', buttonM)
   }
@@ -103,6 +116,7 @@ function index() {
     div.style.position = 'relative';
     div.style.cursor = 'pointer';
     head.insertBefore(div, nomMenu);
+
     function buttonRemove(e) {
       let buttonMob = document.getElementById('buttonMob');
       let menuMob = document.getElementById('menuMob');
@@ -112,16 +126,18 @@ function index() {
         console.log(dataB);
         buttonMob.innerHTML = '<svg width="3em"  viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg >'
         menu()
-      }else{
+      } else {
         buttonMob.setAttribute('data', '0');
         console.log(dataB);
         buttonMob.innerHTML = '<svg width="3em"  viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d = "M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" /></svg >'
         menuMob.remove()
       }
     }
- 
+
     div.addEventListener('click', buttonRemove);
   }
+
+
   function menuMob() {
     let menu = document.getElementById('menu');
     let nav = document.body.appendChild(document.createElement('nav'));
@@ -141,15 +157,17 @@ function index() {
     nav.style.position = 'absolute';
     nav.style.marginTop = '0px';
     nav.style.zIndex = 10000;
-}
+  }
+
 
   $(document).ready(function () {
     parinationColor('pages', '#ec7616', '#ffffff');
     parinationColor('menu-top', '', '#EB7123');
     parinationColor('mob_menu', '', '#EB7123');
     mobButton(menuMob);
-    //resizeWindow();
 
+
+    //resizeWindow();
     //menuleft();
     $("h1, h2 ").css({
       color: "#0088cc",

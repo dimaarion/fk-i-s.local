@@ -29,8 +29,10 @@ class Redactor {
                 textArera.innerHTML = JSON.stringify(this.baseArr)
             }, false)
         });
-
-        this.getId("addPanel").setAttribute("style","display:none;")
+if(this.getId("addPanel") !== null){
+    this.getId("addPanel").setAttribute("style","display:none;");
+}
+        
     }
 
     addPanel(){

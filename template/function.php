@@ -11,13 +11,19 @@ $articleClassRows = new DSelect('article');
 $menu_class = new Menu();
 $art_menu_select = new DSelect('menu,article,art_menu');
 $art_menu_select_count = new DSelect('menu,article,art_menu');
+$settings = new DSelect('settings');
+$metrika = new Metrika();
+
 //Переменные
-$controller->limit = 4;
+
+
+$controller->limit = $settings->queryRow('settings_id',3)['name_site'];
 $controller->alias = $sansize->getrequest('alias');
 $controller->id = $sansize->getrequest('id');
 $menu_alias =  $menuClass->queryRow('alias', $controller->indexPage($controller->alias, ''));
 $artRow = $articleClassRow->queryRow('art_alias', $controller->indexPage($controller->alias, ''));
 $artRows = $articleClassRows->queryRows();
+$metrika->display($artRows);
 $menu = $menuClassRows->queryRows();
 $menu_class->props = $menu;
 $countPageMin = ($controller->twocorrectthird($controller->id, '', 1, $controller->id) * $controller->limit) - $controller->limit;

@@ -37,7 +37,9 @@ image = Array.from(image);
 images = Array.from(images);
 dtnC.map((x)=>x.addEventListener("click",(e)=>{
   image.filter((f)=>f.getAttribute("data").indexOf(e.target.getAttribute("data")) !== -1).map((x,i)=>x.parentElement.parentElement.parentElement.style.display = "flex");
+  image.filter((f)=>f.getAttribute("data").indexOf(e.target.getAttribute("data")) !== -1).map((x,i)=>x.parentElement.parentElement.parentElement.style.cursor = "pointer");
   image.filter((f)=>f.getAttribute("data").indexOf(e.target.getAttribute("data")) === -1).map((x,i)=>x.parentElement.parentElement.parentElement.style.display = "none");
+  image.filter((f)=>f.getAttribute("data").indexOf(e.target.getAttribute("data")) !== -1).map((x,i)=>x.parentElement.parentElement.style.display = "flex");
 
 }))
 
