@@ -45,7 +45,7 @@ class Menu
             endif;
         }
     }
-    public function menu_recursions($alias = '', $color_active = '')
+    public function menu_recursions($alias = '', $color_active = '', $parent_alias = '')
     {
         $arrMenu = $this->getMenu();
         if (!isset($arrMenu)) {
@@ -66,7 +66,7 @@ class Menu
                 $a = '/' . $value['alias'];
             }
 
-            echo '<li class="nav-item top"><a class="nav-link" ' . $c . '  href="' . $a . '">' . $value['names'] . '</a>';
+            echo '<li class="nav-item top"><a data-alias = "' . $parent_alias . '" class="nav-link" ' . $c . '  href="' . $a . '">' . $value['names'] . '</a>';
             if ($value['cild']) :
                 echo '<ul class = "menu_pod">';
                 $this->child($value['cild'], $value['alias']);

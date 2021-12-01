@@ -10,7 +10,7 @@ class DDelete
 
     public function __construct($tables = '', $colid = '', $id = [])
     {
-        if ($id == null) {
+        if ($id == null || !is_int($id)) {
             $id = [];
         }
         $this->id = '(' . implode(',', $id) . ')';

@@ -112,7 +112,7 @@ class Controller
             echo $this->errFiles;
         }
     }
-    
+
     public function get_json($f)
     {
         if (is_file($f)) {
@@ -122,16 +122,15 @@ class Controller
         }
     }
 
-    public function set_json($f = "", $content = ["test"=>"test"])
+    public function set_json($f = "", $content = ["test" => "test"])
     {
-        if($f != ""){
+        if ($f != "") {
             if (is_file($f)) {
-                return  file_put_contents($f, json_encode($content),LOCK_EX);
+                return  file_put_contents($f, json_encode($content), LOCK_EX);
             } else {
                 return $this->errFiles;
             }
         }
-
     }
 
     public function dirFileName($nameDir)
@@ -196,7 +195,7 @@ class Controller
     }
 
 
-    public function insertDbDefault($tb,$idName,$colName,$id,$str)
+    public function insertDbDefault($tb, $idName, $colName, $id, $str)
     {
         $settings = new DSelect($tb);
         $name = $settings->queryRow($idName, $id);
@@ -212,12 +211,11 @@ class Controller
             );
 
             $this->err = $din->err;
-
         }
     }
 
 
-    public function settinsUpdate($sansize,$saveBtn,$names,$id)
+    public function settinsUpdate($sansize, $saveBtn, $names, $id)
     {
         if (@$_REQUEST[$saveBtn]) {
             $din =  new DUpdate(
@@ -241,21 +239,21 @@ class Controller
     public function insertTable($sansize)
     {
         //Добавление названия сайта
-        $this->insertDbDefault('settings','settings_id','name_site',1,'My site');
+        $this->insertDbDefault('settings', 'settings_id', 'name_site', 1, 'My site');
         //по умолчанию добавить почту
-        $this->insertDbDefault('settings','settings_id','name_site',2,'message@mail.ru');
+        $this->insertDbDefault('settings', 'settings_id', 'name_site', 2, 'message@mail.ru');
         //по умолчанию колличество статей на странице
-        $this->insertDbDefault('settings','settings_id','name_site',3,'3');
+        $this->insertDbDefault('settings', 'settings_id', 'name_site', 3, '3');
         //по умолчанию добавить номер тел
-        $this->insertDbDefault('tel','tel_id','tel_content',1,'0 777 777 77');
+        $this->insertDbDefault('tel', 'tel_id', 'tel_content', 1, '0 777 777 77');
 
         //Обновление названия сайта
-        $this->settinsUpdate($sansize,'telsavebutton','nameSiteSave','nameSiteSaveid');
+        $this->settinsUpdate($sansize, 'telsavebutton', 'nameSiteSave', 'nameSiteSaveid');
         //Обновление почты сайта
-        $this->settinsUpdate($sansize,'telsavebutton','nameMailSave','nameMailSaveid');
-        
+        $this->settinsUpdate($sansize, 'telsavebutton', 'nameMailSave', 'nameMailSaveid');
+
         //Обновление колличество статей на странице
-        $this->settinsUpdate($sansize,'telsavebutton','nameCountSave','nameCountSaveid');
+        $this->settinsUpdate($sansize, 'telsavebutton', 'nameCountSave', 'nameCountSaveid');
         //Добавление номера тел
         if (@$_REQUEST['telsavebutton']) {
             $din =  new DUpdate(
@@ -312,7 +310,7 @@ class Controller
                     'parent_id',
                     'position',
                     'menu_id'
-                    
+
 
                 ],
                 [
@@ -328,7 +326,7 @@ class Controller
             );
 
             $this->err = $din->err;
-            header('location:/adminpanel/menu/updatemenu/' . $sansize->getrequest('menu').'/0');
+            header('location:/adminpanel/menu/updatemenu/' . $sansize->getrequest('menu') . '/0');
         }
         // добавление статьи к меню
         if (@$_REQUEST['update_menu_art_save']) {
@@ -603,13 +601,10 @@ Host:https://' . $_SERVER['HTTP_HOST'] . '/';
     {
         $a = [];
         foreach ($std as $key => $value) {
-          foreach ($value as $key2 => $value2) {
-              $a[$key][$key2] = $value2;
-          }
-               
-           
+            foreach ($value as $key2 => $value2) {
+                $a[$key][$key2] = $value2;
+            }
         }
-        return $a ;
+        return $a;
     }
-
 }

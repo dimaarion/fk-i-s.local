@@ -2,9 +2,10 @@
     padding-top: 40px;
     margin-bottom: 10px;
 }
-.images img{
+
+.images img {
     padding: 4px;
-    
+
 }
 
 .images .boxImage {
@@ -13,7 +14,7 @@
 }
 
 .images .dirBoxGallery {
-    margin-top: 225px;
+    margin-top: 150px;
     width: 500px;
     position: absolute;
     z-index: 8000;
@@ -95,7 +96,7 @@
     margin-bottom: 10px;
     position: absolute;
     z-index: 8000;
-    margin-left: -50px;
+    margin-left: 30px;
     margin-top: -25px;
     width: 0px;
     border: none;
@@ -127,6 +128,15 @@
 
 .descriptImg {
     font-size: 12pt;
+    position: absolute;
+    background-color: ghostwhite;
+    width: 100%;
+    text-align: left;
+    margin-top: 60%;
+    height: 40%;
+    opacity: 0.9;
+    padding-left: 10px;
+    overflow: hidden;
 }
 
 .copyUrl {
@@ -136,4 +146,17 @@
 
 .gallery {
     width: 100%;
+}
+
+.fileSpan {
+    position: absolute;
+    margin-top: -25px;
+}
+
+.dopusk {
+    color: green;
+}
+
+.nodopusk {
+    color: red;
 }

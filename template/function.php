@@ -11,13 +11,14 @@ $articleClassRows = new DSelect('article');
 $menu_class = new Menu();
 $art_menu_select = new DSelect('menu,article,art_menu');
 $art_menu_select_count = new DSelect('menu,article,art_menu');
+$art_menu_css = new DSelect('menu,article,art_menu');
 $settings = new DSelect('settings');
 $metrika = new Metrika();
 
 //Переменные
 
 
-$controller->limit = $settings->queryRow('settings_id',3)['name_site'];
+$controller->limit = $settings->queryRow('settings_id', 3)['name_site'];
 $controller->alias = $sansize->getrequest('alias');
 $controller->id = $sansize->getrequest('id');
 $menu_alias =  $menuClass->queryRow('alias', $controller->indexPage($controller->alias, ''));
@@ -27,14 +28,16 @@ $metrika->display($artRows);
 $menu = $menuClassRows->queryRows();
 $menu_class->props = $menu;
 $countPageMin = ($controller->twocorrectthird($controller->id, '', 1, $controller->id) * $controller->limit) - $controller->limit;
-$art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="' 
-. $menu_alias['menu_id']. '" LIMIT '. $countPageMin.','. $controller->limit.'');
+$art_menu = $art_menu_select->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="'
+    . $menu_alias['menu_id'] . '" LIMIT ' . $countPageMin . ',' . $controller->limit . '');
 $art_menu_count = $art_menu_select_count->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND menu.menu_id ="'
-. $menu_alias['menu_id'] . '"');
+    . $menu_alias['menu_id'] . '"');
+$art_menu_alias_css = $art_menu_css->queryRowWhere('menu.menu_id = art_menu.menu AND art_id = art_menu.articles AND article.art_id ="'
+    . $artRow['art_id'] . '"');
 //переадресация на главную если статьи не существует
-$controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'],$menu_alias['alias']),'nopage'), 'nopage','/');
+$controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'], $menu_alias['alias']), 'nopage'), 'nopage', '/');
 //переадресация с http на https
-$controller->redirects($_SERVER['HTTP_X_FORWARDED_PROTOCOL'],'http','https://'. $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$controller->redirects($_SERVER['HTTP_X_FORWARDED_PROTOCOL'], 'http', 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 // Отправка письма
 
 function intFilter($val)
@@ -75,6 +78,5 @@ if ($countform != 0 && $countformto != 0) {
     }
 }
 //Создание файлов
-$controller->createFiles('robots.txt',$controller->createRobotText());
-$controller->createFiles('sitemap.xml', $controller->createSitemap($artRows),'sitemap');
-?>
+$controller->createFiles('robots.txt', $controller->createRobotText());
+$controller->createFiles('sitemap.xml', $controller->createSitemap($artRows), 'sitemap');

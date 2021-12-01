@@ -38,18 +38,28 @@ function index() {
           c.a[i].style.backgroundColor = c.bcolor;
           c.a[i].style.color = c.acolor;
         }
-        if (ahref == c.url) {
-              cssColor(c);
-          let dataChild = c.a[i].getAttribute("data-child");
-          let urlChild = document.location.protocol + "//" + document.location.host + "/" +  dataChild;
-          if(dataChild !== null){
-            if(urlChild == c.a[i].parentElement.parentElement.parentElement.childNodes[0].href){
-               c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.backgroundColor = c.bcolor;
-               c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.color = c.acolor;
-            }
-          
+        if (c.a[i].getAttribute("data-alias") != null) {
+          let alias = c.a[i].getAttribute("data-alias");
+          if (alias == "/") {
+            alias = ""
           }
-          
+          if ("/" + alias == c.a[i].getAttribute("href") && c.a[i].getAttribute("data-alias") != "") {
+            cssColor(c);
+          }
+        }
+
+        if (ahref == c.url) {
+          cssColor(c);
+          let dataChild = c.a[i].getAttribute("data-child");
+          let urlChild = document.location.protocol + "//" + document.location.host + "/" + dataChild;
+          if (dataChild !== null) {
+            if (urlChild == c.a[i].parentElement.parentElement.parentElement.childNodes[0].href) {
+              c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.backgroundColor = c.bcolor;
+              c.a[i].parentElement.parentElement.parentElement.childNodes[0].style.color = c.acolor;
+            }
+
+          }
+
         }
       }
     }

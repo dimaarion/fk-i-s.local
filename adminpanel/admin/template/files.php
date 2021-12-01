@@ -39,9 +39,11 @@
         </select>
       </div>
       <div class="col">
+        <span class="fileSpan"></span>
         <div class="custom-file form-control">
-          <input type="file" class="custom-file-input" name="files" id="customFileLangHTML">
-          <label class="custom-file-label" for="customFileLangHTML" data-browse="Загрузить файл">Выбрать
+          
+          <input type="file" class="custom-file-input text-left" name="files" id="customFileLangHTML">
+          <label class="custom-file-label text-left fileInput" for="customFileLangHTML" data-browse="Загрузить файл">Выбрать
             файл</label>
         </div>
       </div>

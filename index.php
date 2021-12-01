@@ -8,18 +8,18 @@ require_once "./template/function.php"; ?>
 
 </head>
 <?php
-    global $sape;
-    if (!defined('_SAPE_USER')) {
-        define('_SAPE_USER', '29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43');
-    }
-    require_once(realpath($_SERVER['DOCUMENT_ROOT'] . '/29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43__php/29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43/sape.php'));
-    $sape = new SAPE_client();
+global $sape;
+if (!defined('_SAPE_USER')) {
+    define('_SAPE_USER', '29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43');
+}
+require_once(realpath($_SERVER['DOCUMENT_ROOT'] . '/29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43__php/29edd94871c48e1e8770ad7b3d5cb17d8ff22e723c248ab07123df22f2d96b43/sape.php'));
+$sape = new SAPE_client();
 ?>
 
 <body>
 
     <?php
-    $controller->includer(true, true, './template/menu.php', $controller, $menu_class, $menu_alias);
+    $controller->includer(true, true, './template/menu.php', $controller, $menu_class, $menu_alias, $art_menu_alias_css);
     $controller->includer(true, true, './template/duttonTop.php', $controller);
     $controller->includer(true, true, './template/reklama.php', $controller, $sape);
     $controller->includer($controller->indexPage($sansize->getrequest('alias'), ''), $art_menu[0]['alias'], './template/subart.php', $controller, $art_menu, $art_menu_count);
