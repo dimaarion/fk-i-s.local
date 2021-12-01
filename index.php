@@ -20,6 +20,7 @@ $sape = new SAPE_client();
 
     <?php
     $controller->includer(true, true, './template/menu.php', $controller, $menu_class, $menu_alias, $art_menu_alias_css);
+    $controller->includer(true, true, './template/dopmenu.php', $controller, $menu_class, $menu_alias, $art_menu_alias_css);
     $controller->includer(true, true, './template/duttonTop.php', $controller);
     $controller->includer(true, true, './template/reklama.php', $controller, $sape);
     $controller->includer($controller->indexPage($sansize->getrequest('alias'), ''), $art_menu[0]['alias'], './template/subart.php', $controller, $art_menu, $art_menu_count);
