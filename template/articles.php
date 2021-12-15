@@ -3,9 +3,9 @@
 
 		<h1 class="h1"><?php echo $x['art_names'] ?></h1>
 		<div class="container text-left p-2">
-			<?php 
-			echo html_entity_decode($x['art_content'], ENT_HTML5); 
-			if($controller->alias == "konstruktor-pourochnogo-plana"){
+			<?php
+			echo html_entity_decode($x['art_content'], ENT_HTML5);
+			if ($controller->alias == "konstruktor-pourochnogo-plana") {
 				$controller->includer(true, true, './template/konstruktorpourochnogoplana.php', $controller);
 				echo $controller->alias;
 			}
@@ -13,7 +13,7 @@
 		</div>
 
 	</div>
-	<?php 
+	<?php
 	$controller->includer(true, true, './template/dopArt.php', $controller, $x2, $x['art_names']);
-	 ?>
+	?>
 </article>

@@ -4,17 +4,7 @@
             © 2016 - 2020 г.
         </p>
     </div>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/42913549" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
 </footer>
-<script type="text/javascript">
-    var _acic = {
-        dataProvider: 10
-    };
-    (function() {
-        var e = document.createElement("script");
-        e.type = "text/javascript";
-        e.async = true;
-        e.src = "https://www.acint.net/aci.js";
-        var t = document.getElementsByTagName("script")[0];
-        t.parentNode.insertBefore(e, t)
-    })()
-</script>

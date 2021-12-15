@@ -5,7 +5,6 @@ require_once "./template/function.php"; ?>
 
 <head>
     <?php $controller->includer(true, true, './template/header.php', $controller, $controller->dirExt('css'), $controller->dirExt('js'), $menu_alias, $artRow); ?>
-
 </head>
 <?php
 global $sape;
@@ -17,7 +16,6 @@ $sape = new SAPE_client();
 ?>
 
 <body>
-
     <?php
     $controller->includer(true, true, './template/menu.php', $controller, $menu_class, $menu_alias, $art_menu_alias_css);
     $controller->includer(true, true, './template/dopmenu.php', $controller, $menu_class, $menu_alias, $art_menu_alias_css);
@@ -27,7 +25,6 @@ $sape = new SAPE_client();
     $controller->includer($controller->indexPage($sansize->getrequest('alias'), ''), $artRow['art_alias'], './template/articles.php', $controller, $artRow, $artRows);
     $controller->includer(true, true, './template/footer.php', $controller);
     ?>
-
 </body>
 
 </html>

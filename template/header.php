@@ -33,9 +33,12 @@
                                                 echo $controller->ifElseContent(
                                                         $arr['descriptions'],
                                                         $row['art_description']
-                                                );
+                                                ) . $page;
                                                 ?>">
 
+        <!-- SAPE RTB JS -->
+        <script async="async" src="https://cdn-rtb.sape.ru/rtb-b/js/330/2/76330.js" type="text/javascript"></script>
+        <!-- SAPE RTB JS -->
         <title><?php
                 echo $controller->ifElseContent(
                         $arr['title'],
@@ -44,6 +47,7 @@
                 ?>
 
         </title>
+
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript">
                 (function(m, e, t, r, i, k, a) {
@@ -62,7 +66,5 @@
                         webvisor: true
                 });
         </script>
-        <noscript>
-                <div><img src="https://mc.yandex.ru/watch/42913549" style="position:absolute; left:-9999px;" alt="" /></div>
-        </noscript>
+       
         <!-- /Yandex.Metrika counter -->
