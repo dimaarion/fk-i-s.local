@@ -64,16 +64,18 @@ function fileInput(params) {
   let fInput = document.querySelector("#customFileLangHTML");
   let fLabel = document.querySelector(".fileInput");
   let fileSpan = document.querySelector(".fileSpan");
-  fInput.addEventListener("change",()=>{
-    Array.from(fInput.files)
-    .map((x)=>
-    {
-      fLabel.innerHTML = x.name;
-      fileSpan.innerHTML = (x.size / 1000000 < 40)?"<p class = 'dopusk'>Размер: " + x.size / 1000000 + " мб. </p>":"<p class = 'nodopusk'>Размер: " + x.size / 1000000 + " мб. </p>";
-    }
-    );
-  })
-  
+  if (fInput != null) {
+    fInput.addEventListener("change", () => {
+      Array.from(fInput.files)
+        .map((x) => {
+          fLabel.innerHTML = x.name;
+          fileSpan.innerHTML = (x.size / 1000000 < 40) ? "<p class = 'dopusk'>Размер: " + x.size / 1000000 + " мб. </p>" : "<p class = 'nodopusk'>Размер: " + x.size / 1000000 + " мб. </p>";
+        }
+        );
+    })
+  }
+
+
 }
 
 $(document).ready(function () {
