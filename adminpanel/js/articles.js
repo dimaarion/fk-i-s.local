@@ -1,5 +1,5 @@
-function searhArt() {
-    let articles = document.getElementById('articles');
+function searhArt(id) {
+    let articles = document.getElementById(id);
     if (articles) {
         let = main_menu_cl = articles.getElementsByClassName('main_menu_cl');
         let searh = document.getElementById('searh');
@@ -35,7 +35,8 @@ function menuArtorArt() {
 
 }
 
-$(document).ready(function () {
-    searhArt();
+$(document).ready(function () { 
+    searhArt("articles");
+    searhArt("privArt");
     menuArtorArt();
 });

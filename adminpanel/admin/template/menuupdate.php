@@ -84,9 +84,9 @@ $controller->includer(
         <div class="col">
 
             <div class="col mt-1">
-                 <div class="col mb-4 p-0">
-            <?php  $controller->includer(true, true, './admin/template/select.php', $controller,'',''); ?>
-            </div>
+                <div class="col mb-4 p-0">
+                    <?php $controller->includer(true, true, './admin/template/select.php', $controller, '', ''); ?>
+                </div>
                 <label for="parent_id">
                     <h5>
                         Категории
@@ -130,7 +130,7 @@ $controller->includer(
                     ?>
                 </select>
             </div>
-            <div class="col" >
+            <div class="col">
                 <div class="row">
                     <div class="col">
                         <h5 class="h5  mt-4">
@@ -196,6 +196,9 @@ $controller->includer(
                         ?>
                     </div>
                 </div>
+                <div class="form-group col-sm ">
+                    <input value="" class="form-control form-control-lg" type=" text" name="searh" id="searh" placeholder="Поиск статьи">
+                </div>
                 <div class="col new_menu_art_bl" id="privArt">
                     <?php
                     array_map(function ($params) {
@@ -208,7 +211,7 @@ $controller->includer(
                                 'name' => 'articles',
                                 'id' => 'new_menu_art' . $params['art_id'],
                                 'inputclass' => 'col-1',
-                                'divclass' => 'new_menu_art row'
+                                'divclass' => 'new_menu_art  row  main_menu_cl'
                             ]
                         );
                     }, $x2);

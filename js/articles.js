@@ -5,7 +5,16 @@ class Articles{
         return s = Array.from(s);
     }
 
-
+    clearArt(){
+        let container = document.querySelector("article");
+        if(container){
+            //Array.from(container.getElementsByTagName("div")).map((x) => {x.style.fontSize = "";x.getAttribute("style") != null?x.getAttribute("style") == ""?x.removeAttribute("style"):"":"";});
+            Array.from(container.getElementsByTagName("p")).map((x) => {x.style.fontSize = "";x.getAttribute("style") != null?x.getAttribute("style") == ""?x.removeAttribute("style"):"":"";});
+            Array.from(container.getElementsByTagName("span")).map((x) => {x.getAttribute("style") != null?x.removeAttribute("style"):"";});
+            Array.from(container.getElementsByTagName("br")).map((x) => {x.getAttribute("style") != null?x.removeAttribute("style"):"";});
+        }
+        
+    }
 
     searhArt() {
         let articles = document.getElementById('articles');
@@ -72,8 +81,9 @@ class Articles{
 
 
    display(){
-    this.searhArt();
+    //this.searhArt();
     this.menuArtorArt();
+    //this.clearArt();
     //this.subart();
    }
 }

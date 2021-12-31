@@ -4,7 +4,7 @@
         foreach ($x as $key => $value) : ?>
             <div class="container content mb-4 mt-2">
                 <h2 class="h2 pt-2 pb-2"><?php echo $value['art_names']; ?></h2>
-                <div class="col-sm text-left">
+                <div class="col-sm text-justify">
                     <div class="row">
                         <?php if (is_array(json_decode($value['art_subcontent']))) :
                             $json = json_decode($value['art_subcontent']);
