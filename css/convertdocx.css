@@ -1,17 +1,17 @@
-#printer{
+.fileDocx{
     cursor: pointer;
 }
-.printOver{
+.fileOver{
     display: block;
 }
-.printOut{
+.fileOut{
     display: none;
 }
-.printer:hover > .printOver{
+.fileDocx:hover > .fileOver{
     display: none;
     
 }
-.printer:hover > .printOut{
+.fileDocx:hover > .fileOut{
     display: block;
     
 }

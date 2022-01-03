@@ -22,11 +22,13 @@
                 $page = ' страница ' . $controller->id;
         }
         ?>
-        <link rel="canonical" href="<?php if ($_SERVER['REQUEST_URI'] == "/") {
-                                                echo "https://" . $_SERVER['HTTP_HOST'];
-                                        } else {
-                                                echo "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-                                        }  ?>" />
+        <?php if ($_SERVER['REQUEST_URI'] != "/") : ?>
+                <link rel="canonical" href="<?php if ($_SERVER['REQUEST_URI'] == "/") {
+                                                        echo "https://" . $_SERVER['HTTP_HOST'];
+                                                } else {
+                                                        echo "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                                                }  ?>" />
+        <?php endif; ?>
         <meta name="keywords" content="<?php
                                         echo $controller->ifElseContent(
                                                 $arr['keywords'],
