@@ -26,7 +26,7 @@
                 <link rel="canonical" href="<?php if ($_SERVER['REQUEST_URI'] == "/") {
                                                         echo "https://" . $_SERVER['HTTP_HOST'];
                                                 } else {
-                                                        echo "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                                                        echo "https://" . $_SERVER['HTTP_HOST'] . "/" .$artRow['art_alias'];
                                                 }  ?>" />
         <?php endif; ?>
         <meta name="keywords" content="<?php

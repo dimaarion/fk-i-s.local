@@ -6,12 +6,12 @@ class Printer {
         let dopArt = document.querySelector(".dopArt");
         let fileDocx = document.querySelector(".fileDocx");
         if (printer) {
-                printer.addEventListener("click", () => {
+            printer.addEventListener("click", () => {
                 printer.setAttribute("style", "display:none;");
                 dopArt.setAttribute("style", "display:none;");
                 fileDocx.setAttribute("style", "display:none;");
                 //container.setAttribute("style","font-size:14pt !important;text-align:justify !important;");
-                Array.from(container.getElementsByTagName("div")).map((x) => {x.style.fontSize = "14pt";x.style.textAlign = "justify"});
+                Array.from(container.getElementsByTagName("div")).map((x) => { x.style.fontSize = "14pt"; x.style.textAlign = "justify" });
                 Array.from(container.getElementsByTagName("p")).map((x) => x.style.fontSize = "14pt");
                 Array.from(container.getElementsByTagName("span")).map((x) => x.style.fontSize = "14pt");
                 Array.from(container.getElementsByTagName("h1")).map((x) => x.style.textAlign = "center");
@@ -31,10 +31,10 @@ class Printer {
                     printer.setAttribute("style", "display:block;");
                     dopArt.setAttribute("style", "display:block;");
                     fileDocx.setAttribute("style", "display:block;");
-                    Array.from(container.getElementsByTagName("div")).map((x) => {x.style.fontSize = "";x.style.textAlign = "";x.getAttribute("style") != null?x.getAttribute("style") == ""?x.removeAttribute("style"):"":"";});
-                    Array.from(container.getElementsByTagName("p")).map((x) => {x.style.fontSize = "";x.getAttribute("style") != null?x.getAttribute("style") == ""?x.removeAttribute("style"):"":"";});
+                    Array.from(container.getElementsByTagName("div")).map((x) => { x.style.fontSize = ""; x.style.textAlign = ""; x.getAttribute("style") != null ? x.getAttribute("style") == "" ? x.removeAttribute("style") : "" : ""; });
+                    Array.from(container.getElementsByTagName("p")).map((x) => { x.style.fontSize = ""; x.getAttribute("style") != null ? x.getAttribute("style") == "" ? x.removeAttribute("style") : "" : ""; });
                     Array.from(container.getElementsByTagName("span")).map((x) => x.style.fontSize = "");
-                    Array.from(container.getElementsByTagName("h1")).map((x) => {x.style.textAlign = "";x.getAttribute("style") != null?x.getAttribute("style") == ""?x.removeAttribute("style"):"":"";});
+                    Array.from(container.getElementsByTagName("h1")).map((x) => { x.style.textAlign = ""; x.getAttribute("style") != null ? x.getAttribute("style") == "" ? x.removeAttribute("style") : "" : ""; });
                 }
                 console.log(WinPrint.closed)
             })
