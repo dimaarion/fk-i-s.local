@@ -4,3 +4,5 @@ RewriteEngine On
 RewriteRule ^([a-z-_A-Z_0-9]+)$ ?alias=$1
 RewriteRule ^([a-z-_A-Z_0-9]+)/([0-9]+)$ ?alias=$1&id=$2
 RedirectMatch ^/referat/referat_velosport.php$ /velosport
+RedirectMatch ^/sport/teor-darts.php$ /teor-i-metod-tren-darts
+

@@ -10,10 +10,12 @@ class DDelete
 
     public function __construct($tables = '', $colid = '', $id = [])
     {
-        if ($id == null || !is_int($id)) {
+       
+        if ($id == null || !is_array($id)) {
             $id = [];
         }
         $this->id = '(' . implode(',', $id) . ')';
+        
         $this->db = new Database();
         $this->tables = $tables;
         $this->colid = $colid;
@@ -24,6 +26,7 @@ class DDelete
         $col = $this->colid;
         $tables = $this->tables;
         $id = $this->id;
+       
         if ($id != '()') :
             $this->db->deleteRow("DELETE FROM $tables WHERE $col IN $id");
             $this->db->Disconnect();

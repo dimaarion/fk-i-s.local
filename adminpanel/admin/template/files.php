@@ -41,7 +41,7 @@
       <div class="col">
         <span class="fileSpan"></span>
         <div class="custom-file form-control">
-          
+
           <input type="file" class="custom-file-input text-left" name="files" id="customFileLangHTML">
           <label class="custom-file-label text-left fileInput" for="customFileLangHTML" data-browse="Загрузить файл">Выбрать
             файл</label>
@@ -57,17 +57,20 @@
     </div>
     <div class="container  mt-3 images_block">
 
-        <div class="col mb-3" id = "btn_filter_img">
-          <div data="pdf" class="btn btn-primary"> PDF</div>
-          <div data="png" class="btn btn-primary"> PNG</div>
-          <div data="jpg" class="btn btn-primary"> JPG</div>
-          <div data="doc" class="btn btn-primary"> DOC</div>
-          <div data="djvu" class="btn btn-primary">DJVU</div>
-          <div data="dir" class="btn btn-primary"> Папки</div>
-          <div data="files" class="btn btn-primary"> Все</div>
-        </div>
+      <div class="col mb-3" id="btn_filter_img">
+        <div data="pdf" class="btn btn-primary"> PDF</div>
+        <div data="png" class="btn btn-primary"> PNG</div>
+        <div data="jpg" class="btn btn-primary"> JPG</div>
+        <div data="doc" class="btn btn-primary"> DOC</div>
+        <div data="djvu" class="btn btn-primary">DJVU</div>
+        <div data="dir" class="btn btn-primary"> Папки</div>
+        <div data="files" class="btn btn-primary"> Все</div>
+      </div>
+      <div class="form-group col-sm ">
+        <input value="" class="form-control form-control-lg" type="text" name="searh" id="searh" placeholder="Поиск статьи">
+      </div>
+      <div class="row imageGalleryBox" id= "imageGalleryBox">
 
-      <div class="row imageGalleryBox">
         <?php
         function imgFilter($val)
         {
@@ -92,7 +95,7 @@
 
         foreach ($x as $key => $value) :
           if ($controller->id) {
-           $controller->includer(true, true, './admin/template/galleryFiles.php', $controller, ['img' => $img, 'value' => $value], $x2);
+            $controller->includer(true, true, './admin/template/galleryFiles.php', $controller, ['img' => $img, 'value' => $value], $x2);
           }
           if (preg_match('/' . $controller->nmenu . '/', $value) && $controller->page == 'files') :
             $img =   imgFilter($value);
@@ -108,4 +111,5 @@
       </div>
     </div>
   </form>
+  <div id="settinsPanel"></div>
 </div>

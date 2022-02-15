@@ -38,5 +38,7 @@ function menuArtorArt() {
 $(document).ready(function () { 
     searhArt("articles");
     searhArt("privArt");
+    
+    
     menuArtorArt();
 });

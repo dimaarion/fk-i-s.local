@@ -36,6 +36,7 @@ $art_menu_alias_css = $art_menu_css->queryRowWhere('menu.menu_id = art_menu.menu
     . $artRow['art_id'] . '"');
 //переадресация на главную если статьи не существует
 $controller->redirects($controller->ifElseContent($controller->ifElseContent($artRow['art_alias'], $menu_alias['alias']), 'nopage'), 'nopage', '/');
+$controller->redirects(preg_match("/[?]+/",$_SERVER["REQUEST_URI"]), true, '/');
 //переадресация с http на https
 $controller->redirects($_SERVER['HTTP_X_FORWARDED_PROTOCOL'], 'http', 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 // Отправка письма
