@@ -34,7 +34,7 @@ class DUpload
         );
 
 
-        $param = array('jpg', 'png', 'pdf', 'djvu', 'docx', 'txt', 'doc');
+        $param = array('jpg', 'png', 'pdf', 'djvu', 'docx', 'txt', 'doc','rar');
         $image = $this->imgdir;
         $imgDir = $_SERVER['DOCUMENT_ROOT'] . $image;
         @mkdir($imgDir, 0777);

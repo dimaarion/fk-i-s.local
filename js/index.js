@@ -66,17 +66,32 @@ function index() {
   }
   //Рекламма 
   function reklama_php() {
+      function isUrl(r,p,u){
+          let url = document.documentURI;
+          
+              if(p && r){
+                  p.eq(0).append(r); 
+              
+             
+          }else{
+              reklama.addClass("text");
+          }
+          
+      }
     $(".reklama").append("<div></div>");
+    let content = $(".content div").eq(0);
     var div = $(".reklama div");
     var a = $(".reklama a");
     var len = a.length;
     var reklama = $('.reklama');
-    if (len == 0) {
-
+    if (len === 0) {
       reklama.css({ display: "none" });
-
     }
-    $(".reklama").addClass("text");
+    
+    if(content){
+      //  content.append(reklama);
+    }
+    isUrl(reklama,$(".reklamaPage"),"https://fk-i-s.ru/aviamodelniisport");
 
 
   }

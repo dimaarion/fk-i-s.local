@@ -78,6 +78,16 @@ class Articles {
 
 
     }
+    
+    subArtTitle(){
+        let title = document.querySelector(".subArtTitle");
+        if(title){
+            let text = document.title.replace(/([\|]+)/gi,"");
+            text = text.split("-");
+            title.innerHTML = text[0];
+        }
+        
+    }
     createDocx() {
 
         function exportHTML(e) {
@@ -112,6 +122,7 @@ class Articles {
         this.createDocx();
         //this.clearArt();
         //this.subart();
+        this.subArtTitle();
     }
 }
 const articles = new Articles();

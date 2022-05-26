@@ -1,6 +1,7 @@
 .images {
     padding-top: 40px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .images img {
@@ -194,7 +195,7 @@
 #settinsPanel{
     display: none;
     width: 500px;
-    height: 350px;
+    height: auto;
     background-color: rgb(241, 242, 247);
     position: fixed;
     margin: auto;

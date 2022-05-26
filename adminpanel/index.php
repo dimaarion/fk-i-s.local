@@ -1,6 +1,7 @@
 <?php
 spl_autoload_register(function ($className) {
     require './admin/classes/' . $className . '.php';
+    
 });
 
 $controller  = new Controller();
@@ -42,6 +43,10 @@ $controller->insertTable($sansize);
 $controller->deleteTable($sansize);
 //Загрузка файла
 
+$imagePdf = new PdfConvert();
+$imagePdf->createPoster("../img/upload/gh/f1.pdf");
+
+
 $files_upload = new DUpload('files', $_REQUEST['urlDir']);
 $n1 = '/'.$_REQUEST['nmenu'];
 $n2 = '/'.$_REQUEST['id'];
@@ -79,6 +84,7 @@ $controller->redirects($nmenu, 'load', '/adminpanel/files');
 <html lang="ru">
 
 <head>
+
     <?php $controller->includer(true, true, './admin/template/header.php', $controller, $controller->dirExt('css'), $controller->dirExt('js'), 'Административная панель сайта'); ?>
 </head>
 
@@ -111,8 +117,7 @@ $controller->redirects($nmenu, 'load', '/adminpanel/files');
     <?php
      $controller->includer(true, true, './admin/template/footer.php', $controller); 
     ?>
-
-    
+ 
 </body>
 
 </html>

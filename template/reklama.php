@@ -1,1 +1,1 @@
- <div><?php echo iconv("windows-1251", "UTF-8", $x->return_links()); ?></div>
+ <div class = "reklama"><?php echo iconv("windows-1251", "UTF-8", $x->return_links()); ?></div>

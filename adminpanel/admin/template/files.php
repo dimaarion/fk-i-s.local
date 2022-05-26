@@ -61,9 +61,11 @@
         <div data="pdf" class="btn btn-primary"> PDF</div>
         <div data="png" class="btn btn-primary"> PNG</div>
         <div data="jpg" class="btn btn-primary"> JPG</div>
+        <div data="gif" class="btn btn-primary"> GIF</div>
         <div data="doc" class="btn btn-primary"> DOC</div>
         <div data="djvu" class="btn btn-primary">DJVU</div>
         <div data="dir" class="btn btn-primary"> Папки</div>
+        <div data="rar" class="btn btn-primary"> Архивы</div>
         <div data="files" class="btn btn-primary"> Все</div>
       </div>
       <div class="form-group col-sm ">
@@ -87,19 +89,21 @@
             $img = '/img/icon/doc.jpg';
           } else if ($iR == 'djvu' || $iR == 'DJVU') {
             $img = '/img/icon/djvu.png';
-          } else {
-            $img = "/img/upload/" . $val;
+          }else if($iR == 'rar' || $iR == 'RAR'){
+            $img = '/img/icon/rar.png';
+          }else {
+            $img = "/img/upload/rar.png";
           }
           return $img;
         }
 
         foreach ($x as $key => $value) :
           if ($controller->id) {
+              
             $controller->includer(true, true, './admin/template/galleryFiles.php', $controller, ['img' => $img, 'value' => $value], $x2);
           }
           if (preg_match('/' . $controller->nmenu . '/', $value) && $controller->page == 'files') :
             $img =   imgFilter($value);
-
             $controller->includer(true, true, './admin/template/galleryFiles.php', $controller, ['img' => $img, 'value' => $value], $x2);
           endif;
           if ($controller->page != 'files') :

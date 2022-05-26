@@ -1,6 +1,7 @@
 <article>
     <?php
     if (count($x) > 0) :
+        echo '<h1 class = "subArtTitle"></h1>';
         foreach ($x as $key => $value) : ?>
             <div class="container content mb-4 mt-2">
                 <h2 class="h2 pt-2 pb-2"><?php echo $value['art_names']; ?></h2>
@@ -9,6 +10,7 @@
                         <?php if (is_array(json_decode($value['art_subcontent']))) :
                             $json = json_decode($value['art_subcontent']);
                             $json = $controller->parseStdClass($json);
+                            
                             foreach ($json as $key => $js) :
                                 $name = $js['name'];
                                 $content = $js['content'];
@@ -18,7 +20,7 @@
                                 <?php endif; ?>
                                 <?php if ($key == 1 && $content != "") : ?>
                                     <div class="col-sm">
-                                        <p><?php echo $content; ?></p>
+                                        <p><?php echo $content; ?><span class = "reklamaPage"></span></p>
                                     </div>
                                 <?php endif; ?>
 

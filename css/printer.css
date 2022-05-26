@@ -1,5 +1,11 @@
 #printer{
+    width: 100%;
+    text-align: center;
     cursor: pointer;
+}
+.printer{
+    width: 30px;
+    float: right;
 }
 .printOver{
     display: block;
